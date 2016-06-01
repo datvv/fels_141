@@ -13,4 +13,8 @@ public interface UserDAO {
 	 * @return user if exist, null if not exist
 	 */
 	public User checkExistUser(User user);
+	
+	public User findByEmail(String email) throws Exception;
+		
+	public void addNewUser(User user) throws Exception;
 }
