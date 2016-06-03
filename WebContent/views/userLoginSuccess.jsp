@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>This is user login page </h3>
+	<h3>This is user login page</h3>
+	<s:a action="logoutAction">Logout</s:a>
 </body>
 </html>
