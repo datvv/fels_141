@@ -6,7 +6,7 @@
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
-			<value>file:${configPath}/spring-server-config.properties</value>
+			<value>/WEB-INF/configs/spring-server-config.properties</value>
 		</property>
 	</bean>
 

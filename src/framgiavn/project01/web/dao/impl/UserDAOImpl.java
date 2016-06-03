@@ -41,4 +41,17 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		return null;
 	}
 
+	@Override
+	public User checkExistUser(User user) {
+		Query query = getSession().getNamedQuery("User.SearchUserByUser");
+		query.setParameter("email", user.getEmail());
+		query.setParameter("password", user.getPassword());
+		if (query.uniqueResult() != null) {
+			return (User) query.uniqueResult();
+		} else {
+			return null;
+		}
+
+	}
+
 }

@@ -36,4 +36,14 @@ public class UserBusinessImpl implements UserBusiness {
 		}
 	}
 
+	@Override
+	public User checkExistUser(User user) throws Exception {
+		try {
+			return getUserDAO().checkExistUser(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+
 }

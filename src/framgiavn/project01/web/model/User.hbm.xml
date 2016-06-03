@@ -6,7 +6,7 @@
 	<class name="framgiavn.project01.web.model.User" table="User"
 		dynamic-insert="true" dynamic-update="true">
 		<id name="user_id" type="java.lang.Integer">
-			<column name="user_id" length="10" />
+			<column name="id" length="10" />
 			<generator class="assigned" />
 		</id>
 
@@ -26,7 +26,7 @@
 			<column name="avatar" length="255" />
 		</property>
 
-		<property name="isAdmin" type="yes_no">
+		<property name="isAdmin" type="java.lang.Boolean">
 			<column name="is_admin" not-null="true" />
 		</property>
 	</class>
@@ -35,6 +35,10 @@
 		from User user
 		where user.user_id =
 		:user_id
+	</query>
+	<query name="User.SearchUserByUser">
+		select user from User user where user.email =
+		:email and user.password = :password
 	</query>
 
 </hibernate-mapping>
