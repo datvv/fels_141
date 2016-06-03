@@ -31,7 +31,21 @@
 				/views/login.jsp
 			</result>
 		</action>
-		<action name="showUser"></action>
+		
+		<action name="loginRequest" class="springUserLoginAction" method="execute">
+			<result name="userlogin">/views/userLoginSuccess.jsp</result>
+			<result name="adminlogin">/views/adminLoginSuccess.jsp</result>
+			<result name="error">/views/error.jsp</result>
+			<result name="input">
+				/views/login.jsp
+			</result>
+		</action>
+		
+		<action name="logoutAction" class="springUserLogoutAction" method="execute">
+			<result name="success">/views/login.jsp</result>
+		</action>
+		
+		
 	</package>
 	
 </struts>

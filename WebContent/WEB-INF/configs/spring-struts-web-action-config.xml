@@ -13,5 +13,8 @@
 		scope="prototype">
 		<property name="userBusiness" ref="UserBusiness" />
 	</bean>
+	<bean id="springUserLogoutAction" class="framgiavn.project01.web.action.UserLogoutAction"
+		scope="prototype">
+	</bean>
 
 </beans>
