@@ -186,4 +186,12 @@ public class UserLoginAction extends ActionSupport implements SessionAware, Serv
 		this.servletRequest = servletRequest;
 	}
 
+	public User getUserLogin() {
+		return userLogin;
+	}
+
+	public void setUserLogin(User userLogin) {
+		this.userLogin = userLogin;
+	}
+
 }

@@ -11,5 +11,14 @@
 <body>
 	<h3>This is user login page</h3>
 	<s:a action="logoutAction">Logout</s:a>
+	<br />
+	<br />
+	<br />
+
+	<s:url id="wordlistAction" action="wordlistAction" var="myurl">
+		<s:param name="userid">%{userLogin.user_id}</s:param>
+	</s:url>
+	Word list to learn: <a href='<s:property value="#myurl"/>'> Click word list <s:property value="" /></a>
+
 </body>
 </html>

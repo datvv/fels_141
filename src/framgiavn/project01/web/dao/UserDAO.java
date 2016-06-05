@@ -13,4 +13,5 @@ public interface UserDAO {
 	 * @return user if exist, null if not exist
 	 */
 	public User checkExistUser(User user);
+	
 }

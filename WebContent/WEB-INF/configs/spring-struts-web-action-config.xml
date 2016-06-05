@@ -16,5 +16,10 @@
 	<bean id="springUserLogoutAction" class="framgiavn.project01.web.action.UserLogoutAction"
 		scope="prototype">
 	</bean>
+	<bean id="springWordListFilterAction" class="framgiavn.project01.web.action.WordListFilterAction"
+		scope="prototype">
+		<property name="categoryBusiness" ref="CategoryBusiness" />
+		<property name="wordCategoryBusiness" ref="WordCategoryBusiness" />
+	</bean>
 
 </beans>
