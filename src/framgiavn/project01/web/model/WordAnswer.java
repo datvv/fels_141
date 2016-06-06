@@ -38,7 +38,7 @@ public class WordAnswer {
 		this.word_id = word_id;
 	}
 
-	public boolean isCorrect() {
+	public boolean getCorrect() {
 		return correct;
 	}
 

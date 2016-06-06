@@ -6,7 +6,7 @@ package framgiavn.project01.web.model;
 import java.io.Serializable;
 
 /**
- * Category model
+ * Category model mapping to table Category in database
  * @author vuvandat
  *
  */

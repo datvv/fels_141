@@ -12,7 +12,7 @@ import framgiavn.project01.web.business.WordCategoryBusiness;
 import framgiavn.project01.web.model.*;
 
 /**
- * Show and filter word list by some conditions(elearned, unlearned,category)
+ * Show and filter word list by some conditions(elearned, notlearned,category)
  * 
  * @author vuvandat
  *
@@ -23,21 +23,22 @@ public class WordListFilterAction extends ActionSupport {
 
 	private CategoryBusiness categoryBusiness = null;
 	private List<Category> listCategory = null;
-	private int userid = 0;
+	private static int userid = 0;
 	private WordCategoryBusiness wordCategoryBusiness;
 
 	private List<WordCategory> listWordCategory = null;
+	private String selectCategory = "";
+	private String learnedStatus = "";
 
 	/**
-	 * Show all word list and category
+	 * Show category and word list by conditions (learned, notlearned,all)
+	 * 
+	 * @return success: return sorted list words
 	 */
-	@Override
-	public String execute() throws Exception {
+
+	public String filterWordList() throws Exception {
 		listCategory = categoryBusiness.listAllCategory();
-
-		listWordCategory = wordCategoryBusiness.getListWordCategory();
-
-		System.out.println(userid);
+		listWordCategory = wordCategoryBusiness.getListWordCategory(selectCategory, learnedStatus, userid);
 		return SUCCESS;
 	}
 
@@ -79,6 +80,22 @@ public class WordListFilterAction extends ActionSupport {
 
 	public void setListWordCategory(List<WordCategory> listWordCategory) {
 		this.listWordCategory = listWordCategory;
+	}
+
+	public String getSelectCategory() {
+		return selectCategory;
+	}
+
+	public void setSelectCategory(String selectCategory) {
+		this.selectCategory = selectCategory;
+	}
+
+	public String getLearnedStatus() {
+		return learnedStatus;
+	}
+
+	public void setLearnedStatus(String learnedStatus) {
+		this.learnedStatus = learnedStatus;
 	}
 
 }

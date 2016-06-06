@@ -8,7 +8,7 @@ import java.util.List;
 import framgiavn.project01.web.model.*;
 
 /**
- * Handle data in database for show word list function
+ * Handle data in database for show list words
  * 
  * @author vuvandat
  *
@@ -21,4 +21,15 @@ public interface WordCategoryDAO {
 	 * @return listWord follow category
 	 */
 	public List<WordCategory> getListWordCategory();
+
+	/**
+	 * Get list words by some codidtions (learned, not learned, all)
+	 * 
+	 * @param category:
+	 *            category user chose
+	 * @param statusLearn:
+	 *            status learning of user
+	 * @return list filtered words
+	 */
+	public List<WordCategory> getListWordCategory(String category, String statusLearn, int userId);
 }

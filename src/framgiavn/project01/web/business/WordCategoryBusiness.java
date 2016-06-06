@@ -16,8 +16,19 @@ import framgiavn.project01.web.model.WordCategory;
 public interface WordCategoryBusiness {
 
 	/**
-	 * Process login show list all words to word list screen.
+	 * Process logic show list all words to word list screen.
+	 * 
 	 * @return list word
 	 */
 	public List<WordCategory> getListWordCategory();
+
+	/**
+	 * Process logic to filter list words by some conditions
+	 * 
+	 * @param category : category user select fileter
+	 * @param learnedStatus : status learned or notlearned
+	 * @param userId : id of user
+	 * @return list filtered words
+	 */
+	public List<WordCategory> getListWordCategory(String category, String learnedStatus, int userId);
 }

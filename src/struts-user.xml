@@ -49,7 +49,12 @@
 		</action>
 
 		<action name="wordlistAction" class="springWordListFilterAction"
-			method="execute">
+			method="filterWordList">
+			<result name="success">/views/wordList.jsp</result>
+		</action>
+		
+		<action name="filterAction" class="springWordListFilterAction"
+			method="filterWordList">
 			<result name="success">/views/wordList.jsp</result>
 		</action>
 		

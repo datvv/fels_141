@@ -10,6 +10,8 @@ import framgiavn.project01.web.dao.WordCategoryDAO;
 import framgiavn.project01.web.model.WordCategory;
 
 /**
+ * Logic filter data
+ * 
  * @author vuvandat
  *
  */
@@ -20,6 +22,16 @@ public class WordCategoryBusinessImpl implements WordCategoryBusiness {
 	public List<WordCategory> getListWordCategory() {
 		try {
 			return getWordCategoryDAO().getListWordCategory();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	@Override
+	public List<WordCategory> getListWordCategory(String category, String learnedStatus, int userId) {
+		try {
+			return getWordCategoryDAO().getListWordCategory(category, learnedStatus, userId);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;

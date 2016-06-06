@@ -12,19 +12,19 @@
 	<div id="wrapper" style="padding-top: 50px">
 		<div id="top">
 			<p>Category</p>
-			<s:form action="#" method="">
-
+			<s:form action="filterAction" method="filterWordList">
 				<select name="selectCategory">
-					<option value="0">All</option>
+					<option value="">All</option>
 					<s:iterator value="%{listCategory}" var="category">
-						<option value='<s:property value="#category.name" />'><s:property
-								value="#category.name" /></option>
+						<option value='<s:property value="#category.name"/>'
+							 ${category.name == selectCategory ? "SELECTED":""  }
+							 >
+							<s:property value="#category.name" /></option>
 					</s:iterator>
 				</select>
-
-				<input type="radio" name="typeFilter" value="learned">learned
-				<input type="radio" name="typeFilter" value="notlearned">not
-				learned <input type="radio" name="typeFilter" value="all">All<br />
+				<input type="radio" name="learnedStatus" value="learned" ${learnedStatus eq "learned" ? 'checked="checked"' :""  } >learned
+				<input type="radio" name="learnedStatus" value="notlearned" ${learnedStatus eq "notlearned" ? 'checked="checked"' :""  } >not
+				learned <input type="radio" name="learnedStatus" value="all"  ${learnedStatus eq "all" ? 'checked="checked"' :""  } >All<br />
 				<br />
 				<div align="center">
 					<input type="submit" value="Filter" name="filter">
