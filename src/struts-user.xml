@@ -20,18 +20,19 @@
 			<result name="error">User.Info</result>
 		</action>
 	</package>
-	
+
 	<package name="default" namespace="/" extends="struts-default">
-	<!-- user login -->
-		<action name="loginAction" class="springUserLoginAction" method="checkUserLogin">
-			<result name="userlogin">/views/userLoginSuccess.jsp</result>
-			<result name="adminlogin">/views/adminLoginSuccess.jsp</result>
-			<result name="error">/views/error.jsp</result>
-			<result name="input">
-				/views/login.jsp
-			</result>
+		<!-- user login -->
+		<action name="loginAction" class="springUserLoginAction"
+			method="checkUserLogin">
+			<result name="success">/views/userLoginSuccess.jsp</result>
+			<result name="error">/views/login.jsp</result>
 		</action>
-		<action name="showUser"></action>
-	</package>
+		<action name="logoutAction" class="springUserLoginAction"
+			method="logout">
+			<result name="success">/views/login.jsp</result>
+		</action>
 	
+	</package>
+
 </struts>
