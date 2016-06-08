@@ -21,5 +21,9 @@
 		<property name="categoryBusiness" ref="CategoryBusiness" />
 		<property name="wordCategoryBusiness" ref="WordCategoryBusiness" />
 	</bean>
+	<bean id="springCategoriesAction" class="framgiavn.project01.web.action.CategoriesAction"
+		scope="prototype">
+		<property name="userCategoryBusiness" ref="UserCategoryBusiness" />
+	</bean>
 
 </beans>

@@ -19,6 +19,13 @@
 		<s:param name="userid">%{userLogin.user_id}</s:param>
 	</s:url>
 	Word list to learn: <a href='<s:property value="#myurl"/>'> Click word list <s:property value="" /></a>
-
+	<br/>
+	
+	<s:url id="showCategories" action="showCategories" var="myurl2">
+		<s:param name="userid">%{userLogin.user_id}</s:param>
+	</s:url>
+	
+	Show categories: <a href='<s:property value="#myurl2"/>'> Click categories <s:property value="" /></a> 
+	
 </body>
 </html>

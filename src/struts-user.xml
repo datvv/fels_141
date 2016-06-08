@@ -57,6 +57,10 @@
 			method="filterWordList">
 			<result name="success">/views/wordList.jsp</result>
 		</action>
+		<action name="showCategories" class="springCategoriesAction"
+			method="showCategories">
+			<result name="success">/views/categories.jsp</result>
+		</action>
 		
 	</package>
 
