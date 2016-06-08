@@ -12,8 +12,8 @@
 		</put-list-attribute>
 	</definition>
 	
-	<definition name="/SignUp.tiles" extends="Default.Web">
-		<put-attribute name="body" value="/user/body-signup.jsp" />
+	<definition name="SignUp" extends="Default.Web">
+		<put-attribute name="body" value="/user/signup.jsp" />
 	   	<put-list-attribute name="js">
  		</put-list-attribute>
 		<put-list-attribute name="css">
@@ -21,7 +21,7 @@
  	</definition>
 	
 	<definition name="SignUp-success" extends="Default.Web">
-		<put-attribute name="body" value="/user/signup-success-body.jsp" />
+		<put-attribute name="body" value="/user/signup_success.jsp" />
 	   	<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">
@@ -53,4 +53,12 @@
 		</put-list-attribute>
 	</definition>
 
+	<definition name="HomeScreen" extends="Default.Web">
+		<put-attribute name="body" value="/user/home.jsp" />
+	   	<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/home.css"/>
+		</put-list-attribute> 
+	</definition>
 </tiles-definitions>

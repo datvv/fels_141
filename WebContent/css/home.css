@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.leftHome{
+	float: left;
+	width: 30%;	
+}
+
+.rightHome{
+	float: right;
+	width: 70%;
+}
+
+#actTitle { 
+	font-size: 1.0em;
+	font-weight: bold;
+}

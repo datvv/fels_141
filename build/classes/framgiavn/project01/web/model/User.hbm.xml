@@ -38,13 +38,32 @@
 		:userId
 	</query>
 	<query name="User.SearchUserByUser">
-		select user from User user where user.email =
-		:email and user.password = :password
+		select user 
+		from User user 
+		where user.email = :email and 
+			user.password = :password
 	</query>
 	<query name="User.SelectUserByEmail">
 		select user
 		from User user
-		where user.email =
-		:email
+		where user.email = :email
 	</query>
+	<query name="User.GetFollowingListByUserId">
+    	select user
+    	from User user, Relationship relationship 
+    	where relationship.followerId = :user_id and
+    		user.id = relationship.followingId
+    </query>
+    <query name="User.GetActivityListByUserId">
+		from Activity activity
+		where activity.userId = :user_id 
+    </query>
+    <query name="User.GetWordLearnedListByUserId">
+        select distinct word
+    	from LessonWord lessonWord, Word word, Lesson lesson
+    	where  lesson.userId = :user_id and
+    		lessonWord.lessonId = lesson.id and
+    	    lessonWord.wordId = word.id and
+    		lessonWord.wordAnswerId is not null
+    </query>
 </hibernate-mapping>

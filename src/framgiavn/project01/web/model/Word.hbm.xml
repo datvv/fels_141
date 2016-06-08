@@ -17,7 +17,5 @@
 		<property name="categoryId" type="java.lang.Integer">
 			<column name="category_id" length="16" />
 		</property>
-
 	</class>
-
 </hibernate-mapping>
