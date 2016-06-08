@@ -9,7 +9,16 @@ package framgiavn.project01.web.model;
  * @author vuvandat
  *
  */
-public class Word {
+
+import java.io.Serializable;
+
+public class Word implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int id;
 	private String content;
 	private int categoryId;
@@ -34,7 +43,8 @@ public class Word {
 		return categoryId;
 	}
 
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
+	public void setCategoryId(int category_id) {
+		this.categoryId = category_id;
 	}
+
 }

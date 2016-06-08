@@ -25,12 +25,13 @@
 				exception="java.lang.RuntimeException" />
 		</global-exception-mappings>
 
-	  	<action name="" class="springHomeScreenAction" method="homePage">
-		    <result>HomeScreen</result>
+		<action name="" class="springLessonScreenAction" method="solveProblem">
+			<result>LessonScreen</result>
 		</action>
-	 
+
 	</package>
 
 	<!-- ===== Include Web Module Configuration ===== -->
 	<include file="struts-user.xml" />
+
 </struts>

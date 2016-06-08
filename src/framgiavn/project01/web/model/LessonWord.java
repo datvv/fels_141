@@ -2,22 +2,22 @@ package framgiavn.project01.web.model;
 
 import java.io.Serializable;
 
-public class LessonWord implements Serializable{
+public class LessonWord implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private int id;
 	private int lessonId;
 	private int wordId;
 	private int wordAnswerId;
-	
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}

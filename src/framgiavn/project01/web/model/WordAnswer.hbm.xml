@@ -13,7 +13,7 @@
 		<property name="content" type="java.lang.String">
 			<column name="content" length="20" />
 		</property>
-		
+
 		<property name="wordId" type="java.lang.Integer">
 			<column name="word_id" length="10" />
 		</property>
@@ -21,7 +21,5 @@
 		<property name="correct" type="java.lang.Boolean">
 			<column name="correct" not-null="false" />
 		</property>
-
 	</class>
-
 </hibernate-mapping>

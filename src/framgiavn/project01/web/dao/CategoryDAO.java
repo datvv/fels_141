@@ -20,4 +20,7 @@ public interface CategoryDAO {
 	 * @return list category
 	 */
 	public List<Category> listAllCategory() throws Exception;
+
+	public Category findByCategoryId(int category_id) throws Exception; 
+	
 }

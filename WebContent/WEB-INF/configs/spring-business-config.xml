@@ -14,6 +14,7 @@
 			</bean>
 		</property>
 	</bean>
+
 	<bean id="CategoryBusiness" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="framgiavn.project01.web.business.impl.CategoryBusinessImpl">
@@ -21,11 +22,30 @@
 			</bean>
 		</property>
 	</bean>
+
 	<bean id="WordCategoryBusiness" parent="transactionProxyTemplate">
 		<property name="target">
-			<bean class="framgiavn.project01.web.business.impl.WordCategoryBusinessImpl">
+			<bean
+				class="framgiavn.project01.web.business.impl.WordCategoryBusinessImpl">
 				<property name="wordCategoryDAO" ref="WordCategoryDAO" />
 			</bean>
 		</property>
 	</bean>
+
+	<bean id="LessonBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.LessonBusinessImpl">
+				<property name="lessonDAO" ref="LessonDAO" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="LessonWordBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.LessonWordBusinessImpl">
+				<property name="lessonWordDAO" ref="LessonWordDAO" />
+			</bean>
+		</property>
+	</bean>
+
 </beans>

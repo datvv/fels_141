@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+#categoryStyle {
+	font-size: 3.0em;
+	color: black;
+}
+
+div.centerBlock {
+	margin: auto;
+	width: 80%;
+	border: 3px solid green;
+	padding: 10px;
+}
+
+div.inline {
+	float: left;
+}
+
+.clearBoth {
+	clear: both;
+}
+
+#wordStyle {
+	font-size: 2.0em;
+	font-weight: bold;
+	color: black;
+}
+
+#wordAnswerStyle {
+	font-size: 2.0em;
+	color: black;
+}

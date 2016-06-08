@@ -22,7 +22,7 @@ public class UserLoginAction extends ActionSupport {
 	private User user;
 	private String message = "";
 	private User userCheck;
-	private Logit2 log = Logit2.getInstance(UserLoginAction.class);
+	// private Logit2 log = Logit2.getInstance(UserLoginAction.class);
 
 	/**
 	 * Check exist user in database;
@@ -43,7 +43,7 @@ public class UserLoginAction extends ActionSupport {
 				return ERROR;
 			}
 		} catch (Exception e) {
-			log.error("get failed ", e);
+			// log.error("get failed ", e);
 			return ERROR;
 		}
 	}
