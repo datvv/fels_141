@@ -45,5 +45,23 @@ public class UserBusinessImpl implements UserBusiness {
 			throw e;
 		}
 	}
+	
+	@Override
+	public User findByEmail(String email) throws Exception{
+		try{
+			return getUserDAO().findByEmail(email);
+		} catch (Exception e){
+ 			e.printStackTrace();
+ 			throw e;
+ 		}
+ 	}
 
+	@Override
+	public void addNewUser(User user) throws Exception {
+		try{
+			getUserDAO().addNewUser(user);
+		}  catch (Exception e){
+			e.printStackTrace();
+		}
+	}
 }

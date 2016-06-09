@@ -2,6 +2,8 @@ package framgiavn.project01.web.dao.impl;
 
 import org.hibernate.LockMode;
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import framgiavn.project01.web.dao.UserDAO;
@@ -53,5 +55,30 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		}
 
 	}
-
+	
+	@Override
+	public User findByEmail(String email) throws Exception {
+		return findByEmail(email, false);
+	}
+	
+	public User findByEmail(String email, boolean lock) throws Exception{
+		try{
+			Query query = getSession().getNamedQuery("User.SelectUserByEmail");
+			if(lock)
+				query.setLockMode("User", LockMode.UPGRADE);
+			query.setParameter("email", email);
+			return (User) query.uniqueResult();
+		} catch (RuntimeException re){
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+	
+	@Override
+	public void addNewUser(User user) throws Exception {
+		Session session = getSession();
+		Transaction tx = session.beginTransaction();
+		session.save(user);
+		tx.commit();
+	}
 }

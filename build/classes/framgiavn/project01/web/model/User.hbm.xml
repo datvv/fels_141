@@ -7,7 +7,8 @@
 		dynamic-insert="true" dynamic-update="true">
 		<id name="user_id" type="java.lang.Integer">
 			<column name="id" length="10" />
-			<generator class="assigned" />
+			<!--   <generator class="assigned" /> -->
+			<generator class="increment" />
 		</id>
 
 		<property name="username" type="java.lang.String">
@@ -40,5 +41,10 @@
 		select user from User user where user.email =
 		:email and user.password = :password
 	</query>
-
+	<query name="User.SelectUserByEmail">
+		select user
+		from User user
+		where user.email =
+		:email
+	</query>
 </hibernate-mapping>
