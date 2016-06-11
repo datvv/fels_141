@@ -5,7 +5,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
 import framgiavn.project01.web.dao.UserDAO;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.ulti.Logit2;
@@ -29,10 +28,9 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 			Query query = getSession().getNamedQuery("User.SelectUserByUserId");
 			if (lock)
 				query.setLockMode("User", LockMode.UPGRADE);
-			query.setParameter("user_id", user_id);
+			query.setParameter("userId", user_id);
 			return (User) query.uniqueResult();
 		} catch (RuntimeException re) {
-			log.error("get failed", re);
 			throw re;
 		}
 	}
@@ -44,7 +42,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	}
 
 	@Override
-	public User checkExistUser(User user) {
+	public User checkExistUser(User user) throws Exception {
 		Query query = getSession().getNamedQuery("User.SearchUserByUser");
 		query.setParameter("email", user.getEmail());
 		query.setParameter("password", user.getPassword());
@@ -55,25 +53,25 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		}
 
 	}
-	
+
 	@Override
 	public User findByEmail(String email) throws Exception {
 		return findByEmail(email, false);
 	}
-	
-	public User findByEmail(String email, boolean lock) throws Exception{
-		try{
+
+	public User findByEmail(String email, boolean lock) throws Exception {
+		try {
 			Query query = getSession().getNamedQuery("User.SelectUserByEmail");
-			if(lock)
+			if (lock)
 				query.setLockMode("User", LockMode.UPGRADE);
 			query.setParameter("email", email);
 			return (User) query.uniqueResult();
-		} catch (RuntimeException re){
+		} catch (RuntimeException re) {
 			log.error("get failed", re);
 			throw re;
 		}
 	}
-	
+
 	@Override
 	public void addNewUser(User user) throws Exception {
 		Session session = getSession();
