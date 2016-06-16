@@ -1,0 +1,78 @@
+@charset "utf-8";
+/*  CSS document */
+
+body{
+    background-color:whitesmoke ;
+}
+#wrapper{
+    width:1000px;
+    height:1000px;
+    border: 1px solid black;
+    margin: auto;
+    background-color:white;
+}
+#top{
+    height: 200px;
+    width: 500px;
+    margin: auto;
+}
+#body-content{
+    width: 1000px;
+    border-color: blue;
+    background-color:blue;
+}
+.body-left{
+    width: 49%;
+    border-right-style: groove;
+    float: left;
+}
+.content-left-head{
+    margin-bottom: 10px;
+}
+.body-left ul{
+    list-style: none;
+}
+.body-left ul li{
+    float: left;
+    width: 50%;
+    text-align: center
+}
+.body-right{
+    width: 49%;
+    float: right;
+}
+.body-right ul{
+    list-style: none;
+
+}
+.body-right ul li{
+    float: left;
+    width: 50%;
+    text-align: center
+}
+.content{
+    height: 200px;
+    margin-bottom: 50px;
+}
+.content-left{
+    float:left;
+    width: 50%;
+}
+.content-left-text{
+    height: 160px;
+}
+.content-left-bottom{
+    height: 30px;
+    text-align: end;
+}
+
+.content-right{
+    float:right;
+    width: 50%;
+}
+.content-right-content{
+    width:300px;
+    height: 200px;
+    margin: auto;
+    border: 1px solid black;
+}

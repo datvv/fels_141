@@ -5,7 +5,7 @@
 <hibernate-mapping>
 	<class name="framgiavn.project01.web.model.User" table="User"
 		dynamic-insert="true" dynamic-update="true">
-		<id name="user_id" type="java.lang.Integer">
+		<id name="id" type="java.lang.Integer">
 			<column name="id" length="10" />
 			<!--   <generator class="assigned" /> -->
 			<generator class="increment" />
@@ -34,8 +34,8 @@
 	<query name="User.SelectUserByUserId">
 		select user
 		from User user
-		where user.user_id =
-		:user_id
+		where user.id =
+		:userId
 	</query>
 	<query name="User.SearchUserByUser">
 		select user from User user where user.email =

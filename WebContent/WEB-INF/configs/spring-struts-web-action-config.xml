@@ -5,13 +5,15 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
 	<!-- ================== USER MODULE ================== -->
-	<bean id="springUserAction" class="framgiavn.project01.web.action.UserAction"
-		scope="prototype">
+	<bean id="springUserAction" class="framgiavn.project01.web.action.UserAction">
 		<property name="userBusiness" ref="UserBusiness" />
 	</bean>
-	<bean id="springUserLoginAction" class="framgiavn.project01.web.action.UserLoginAction"
-		scope="prototype">
+	<bean id="springUserLoginAction" class="framgiavn.project01.web.action.UserLoginAction">
 		<property name="userBusiness" ref="UserBusiness" />
+	</bean>
+	<bean id="springWordListFilterAction" class="framgiavn.project01.web.action.WordListFilterAction">
+		<property name="categoryBusiness" ref="CategoryBusiness" />
+		<property name="wordCategoryBusiness" ref="WordCategoryBusiness" />
 	</bean>
 
 </beans>

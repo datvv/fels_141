@@ -1,17 +1,11 @@
 package framgiavn.project01.web.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-
 import framgiavn.project01.web.business.UserBusiness;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.ulti.AvatarUtils;
 
 public class UserAction extends ActionSupport {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	// private Logit2 log = Logit2.getInstance(UserAction.class);
 
@@ -33,7 +27,7 @@ public class UserAction extends ActionSupport {
 
 	public String findByUserId() {
 		try {
-			user = userBusiness.findByUserId(user.getUser_id());
+			user = userBusiness.findByUserId(user.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,12 +44,11 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String homePage() {
-		System.out
-				.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		return SUCCESS;
 	}
-		
-	public String signUp(){		
+
+	public String signUp() {
 		try {
 			user.setAvatar(AvatarUtils.getAvatarURL(user.getEmail()));
 			userBusiness.addNewUser(user);
@@ -65,45 +58,40 @@ public class UserAction extends ActionSupport {
 		}
 		return ERROR;
 	}
-	
+
 	public String getPasswordConfirm() {
 		return passwordConfirm;
 	}
 
-
 	public void setPasswordConfirm(String passwordConfirm) {
 		this.passwordConfirm = passwordConfirm;
 	}
-	
-	public void validate(){
-		if(user != null){
-			if(user.getEmail() == null || user.getEmail().trim().equals("")){
+
+	public void validate() {
+		if (user != null) {
+			if (user.getEmail() == null || user.getEmail().trim().equals("")) {
 				addFieldError("user.email", "Email is required");
-			}
-			else{
+			} else {
 				User oldUser = null;
 				try {
 					oldUser = userBusiness.findByEmail(user.getEmail());
-				} catch (Exception e){
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				if(oldUser != null){
+				if (oldUser != null) {
 					addFieldError("user.email", "This email was used, try another one.");
 				}
 			}
-			if(user.getUsername() == null || user.getUsername().trim().equals("")){
+			if (user.getUsername() == null || user.getUsername().trim().equals("")) {
 				addFieldError("user.username", "Username is required");
-			}
-			else if(user.getUsername().length() > 20 || user.getUsername().length() < 5){
+			} else if (user.getUsername().length() > 20 || user.getUsername().length() < 5) {
 				addFieldError("user.username", "Length of Username is from 5 to 20");
 			}
-			if(user.getPassword() == null || user.getPassword().trim().equals("")){
+			if (user.getPassword() == null || user.getPassword().trim().equals("")) {
 				addFieldError("user.password", "Password can not be empty");
-			}
-			else if(user.getPassword().length() > 16 || user.getPassword().length() < 5){
+			} else if (user.getPassword().length() > 16 || user.getPassword().length() < 5) {
 				addFieldError("user.password", "Length of Password is from 5 to 16");
-			}
-			else if(!user.getPassword().equals(this.passwordConfirm)){
+			} else if (!user.getPassword().equals(this.passwordConfirm)) {
 				addFieldError("passwordConfirm", "Password is not matched");
 			}
 		}

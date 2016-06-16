@@ -26,8 +26,7 @@
 		</global-exception-mappings>
 
 		<action name="" class="springUserAction" method="homePage">
-			<!--  <result>HomePage</result> -->
-		    <result>/SignUp.tiles</result>
+			<result>LogIn</result>
 		</action>
 
 	</package>
