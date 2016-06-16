@@ -21,13 +21,13 @@
 	<div>
 		<div>
 			<div class="ui-button ui-widget">
-				<s:form>
-					<s:submit type="button" action="goToWordList">
-						<s:param name="value">
-							<fmt:message key="msg.words.button.submit" />
-						</s:param>
-					</s:submit>
-				</s:form>
+			<s:form action="wordlistAction" method="post" >
+				<s:submit type="button">
+					<s:param name="value">
+						<fmt:message key="msg.words.button.submit"/>
+					</s:param>
+				</s:submit>
+			</s:form>
 			</div>
 			<div class="ui-button ui-widget">
 				<s:form>

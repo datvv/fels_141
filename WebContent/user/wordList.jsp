@@ -1,28 +1,23 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<fmt:setLocale value="en" />
-<fmt:setBundle basename="msg" var="lang" />
 <div>
 	<div id="wrapper" style="padding-top: 50px">
 		<div id="top" align="center">
-			<s:form action="#" method="">
-				<s:select name="selectedCategory" list="listCategory" listKey="name"
+			<s:form action="filterAction" method="post">
+				<s:select id="selectedCategory" name="selectedCategory" list="listCategory" listKey="name"
 					listValue="name">
 					<s:param name="label">
-						<fmt:message key="wordList.category" bundle="${lang}" />
+						<fmt:message key="wordList.category" />
+					</s:param>
+					<s:param name="headerKey">
+					</s:param>
+					<s:param name="headerValue">
+						<fmt:message key="wordList.selectCategory" />
 					</s:param>
 				</s:select>
-				<s:radio name="typeFilter"
-					list="#{'learned':'learned','notlearned':'not learned','all':'All'}" />
+				<s:radio label="Status" id="learnedStatus" name="learnedStatus"
+					list="listLearnedStatus" value="defaultStatusValue" />
 			</s:form>
-			<br />
-			<div>
-				<s:submit type="button">
-					<s:param name="value">
-						<fmt:message key="wordList.filter" bundle="${lang}" />
-					</s:param>
-				</s:submit>
-			</div>
 		</div>
 		<div id="body-content">
 			<s:iterator value="%{listWordCategory}" var="wordCategory"
