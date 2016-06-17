@@ -1,16 +1,20 @@
 package framgiavn.project01.web.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import framgiavn.project01.web.dao.UserDAO;
+import framgiavn.project01.web.model.Activity;
 import framgiavn.project01.web.model.User;
+import framgiavn.project01.web.model.Word;
 import framgiavn.project01.web.ulti.Logit2;
 
 public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
-
+	
 	private static final Logit2 log = Logit2.getInstance(UserDAOImpl.class);
 	public static final String NAME = "customerName";
 
@@ -79,4 +83,41 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		session.save(user);
 		tx.commit();
 	}
+	
+	@Override
+	public List<Activity> getActivityListByUserId(Integer user_id) throws Exception {
+		try{
+			Query query = getSession().getNamedQuery("User.GetActivityListByUserId");
+			query.setParameter("user_id", user_id);
+			return query.list();
+		} catch(RuntimeException re){
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+	
+	@Override
+	public List<User> getFollowingListByUserId(Integer user_id) throws Exception {
+		try{
+			Query query = getSession().getNamedQuery("User.GetFollowingListByUserId");
+			query.setParameter("user_id", user_id);
+			return query.list();
+		} catch(RuntimeException re){
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+	
+	@Override
+	public List<Word> getWordLearnedListByUserId(Integer user_id) throws Exception {
+		try{
+			Query query = getSession().getNamedQuery("User.GetWordLearnedListByUserId");
+			query.setParameter("user_id", user_id);
+			return query.list();
+		} catch (RuntimeException re){
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+
 }

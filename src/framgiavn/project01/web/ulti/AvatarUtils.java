@@ -15,7 +15,6 @@ public class AvatarUtils {
 	public static String getAvatarURL(String email){
 		Gravatar gravatar = new Gravatar();
 		String url = gravatar.getUrl(email);
-		System.out.println("url before=" + url + "=");
 		int length = url.length();
 		StringBuilder sb = new StringBuilder(url);		
 		if(sb.substring(length - 3, length).equals(A404)){

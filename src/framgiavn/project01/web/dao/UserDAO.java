@@ -1,6 +1,10 @@
 package framgiavn.project01.web.dao;
 
+import java.util.List;
+
+import framgiavn.project01.web.model.Activity;
 import framgiavn.project01.web.model.User;
+import framgiavn.project01.web.model.Word;
 
 public interface UserDAO {
 	public User findByUserId(Integer user_id) throws Exception;
@@ -19,4 +23,11 @@ public interface UserDAO {
 	public User findByEmail(String email) throws Exception;
 
 	public void addNewUser(User user) throws Exception;
+	
+	public List<Activity> getActivityListByUserId(Integer user_id) throws Exception;
+	
+	public List<User> getFollowingListByUserId(Integer user_id) throws Exception;
+	
+	public List<Word> getWordLearnedListByUserId(Integer user_id) throws Exception;
+	
 }

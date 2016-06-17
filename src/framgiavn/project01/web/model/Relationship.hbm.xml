@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="framgiavn.project01.web.model.Relationship" table="Relationship">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="followingId" type="java.lang.Integer">
+            <column name="following_id" />
+        </property>
+        <property name="followerId" type="java.lang.Integer">
+            <column name="follower_id" />
+        </property>
+    </class>
+</hibernate-mapping>

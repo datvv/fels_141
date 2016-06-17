@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="framgiavn.project01.web.model.LessonWord" table="LessonWord">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="lessonId" type="java.lang.Integer">
+            <column name="lesson_id" />
+        </property>
+        <property name="wordId" type="java.lang.Integer">
+            <column name="word_id" />
+        </property>
+        <property name="wordAnswerId" type="java.lang.Integer">
+            <column name="word_answer_id" />
+        </property>
+    </class>
+</hibernate-mapping>

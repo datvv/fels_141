@@ -55,6 +55,9 @@
 	<listener>
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
 	</listener>
+	<listener>
+		<listener-class>framgiavn.project01.web.listener.InitUserApplicationContext</listener-class>
+	</listener>
 	<!-- Define Welcome File List -->
 	<welcome-file-list>
 		<!--  <welcome-file>index.jsp</welcome-file> -->
