@@ -12,14 +12,14 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author nguyenanhvan
  *
  */
-public class HomeScreenAction extends ActionSupport{
-	
+public class HomeScreenAction extends ActionSupport {
+
 	private User user = null;
 	private UserBusiness userBusiness = null;
-	
-	public String homePage(){
+
+	public String homePage() {
 		Map<String, Object> session = ActionContext.getContext().getSession();
-		user = (User)session.get("currentUser");
+		user = (User) session.get("currentUser");
 		try {
 			userBusiness.updateUser(user);
 		} catch (Exception e) {
@@ -27,12 +27,12 @@ public class HomeScreenAction extends ActionSupport{
 		}
 		return SUCCESS;
 	}
-	
-	public String goToWordList(){
+
+	public String goToWordList() {
 		return SUCCESS;
 	}
-	
-	public String goToCategories(){
+
+	public String goToCategories() {
 		return SUCCESS;
 	}
 
@@ -43,7 +43,7 @@ public class HomeScreenAction extends ActionSupport{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	public UserBusiness getUserBusiness() {
 		return userBusiness;
 	}

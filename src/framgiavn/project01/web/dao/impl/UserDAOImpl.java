@@ -11,11 +11,12 @@ import framgiavn.project01.web.dao.UserDAO;
 import framgiavn.project01.web.model.Activity;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.model.Word;
+import framgiavn.project01.web.model.WordAnswer;
 import framgiavn.project01.web.ulti.Logit2;
 
 public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
-	
-	private static final Logit2 log = Logit2.getInstance(UserDAOImpl.class);
+
+	// private static final Logit2 log = Logit2.getInstance(UserDAOImpl.class);
 	public static final String NAME = "customerName";
 
 	protected void initDAO() {
@@ -32,9 +33,10 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 			Query query = getSession().getNamedQuery("User.SelectUserByUserId");
 			if (lock)
 				query.setLockMode("User", LockMode.UPGRADE);
-			query.setParameter("userId", user_id);
+			query.setParameter("user_id", user_id);
 			return (User) query.uniqueResult();
 		} catch (RuntimeException re) {
+			// log.error("get failed", re);
 			throw re;
 		}
 	}
@@ -55,7 +57,6 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		} else {
 			return null;
 		}
-
 	}
 
 	@Override
@@ -71,7 +72,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 			query.setParameter("email", email);
 			return (User) query.uniqueResult();
 		} catch (RuntimeException re) {
-			log.error("get failed", re);
+			// log.error("get failed", re);
 			throw re;
 		}
 	}
@@ -83,41 +84,113 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		session.save(user);
 		tx.commit();
 	}
-	
+
 	@Override
-	public List<Activity> getActivityListByUserId(Integer user_id) throws Exception {
-		try{
-			Query query = getSession().getNamedQuery("User.GetActivityListByUserId");
+	public List<Word> findWordLearnedInCategory(int user_id, int category_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.FindWordLearnedInCategory");
 			query.setParameter("user_id", user_id);
+			query.setParameter("category_id", category_id);
 			return query.list();
-		} catch(RuntimeException re){
-			log.error("get failed", re);
-			throw re;
-		}
-	}
-	
-	@Override
-	public List<User> getFollowingListByUserId(Integer user_id) throws Exception {
-		try{
-			Query query = getSession().getNamedQuery("User.GetFollowingListByUserId");
-			query.setParameter("user_id", user_id);
-			return query.list();
-		} catch(RuntimeException re){
-			log.error("get failed", re);
-			throw re;
-		}
-	}
-	
-	@Override
-	public List<Word> getWordLearnedListByUserId(Integer user_id) throws Exception {
-		try{
-			Query query = getSession().getNamedQuery("User.GetWordLearnedListByUserId");
-			query.setParameter("user_id", user_id);
-			return query.list();
-		} catch (RuntimeException re){
-			log.error("get failed", re);
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
 			throw re;
 		}
 	}
 
+	@Override
+	public List<Word> findWordNotLearnedInCategory(int user_id, int category_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.FindWordNotLearnedInCategory");
+			query.setParameter("user_id", user_id);
+			query.setParameter("category_id", category_id);
+			return query.list();
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public Long getAllWordLearned(int user_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.FindWordLearned");
+			query.setParameter("user_id", user_id);
+			return (Long) query.uniqueResult();
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public List<Activity> getActivityListByUserId(Integer user_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.GetActivityListByUserId");
+			query.setParameter("user_id", user_id);
+			return query.list();
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public List<User> getFollowingListByUserId(Integer user_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.GetFollowingListByUserId");
+			query.setParameter("user_id", user_id);
+			return query.list();
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public List<Word> getWordLearnedListByUserId(Integer user_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.GetWordLearnedListByUserId");
+			query.setParameter("user_id", user_id);
+			return query.list();
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	public List<WordAnswer> findAnswers(int word_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.FindAnswers");
+			query.setParameter("word_id", word_id);
+			return query.list();
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public int findAnswerByContent(String answer) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.SelectWordAnswer");
+			query.setParameter("wordAnswer_content", answer);
+			return (int) query.uniqueResult();
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public Boolean getResultByWordAnswerId(int user_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.getResultByWordAnswerId");
+			query.setParameter("user_id", user_id);
+			return (Boolean)query.uniqueResult();
+		} catch (RuntimeException re) {
+			// log.error("get failed",re);
+			throw re;
+		}
+	}
 }

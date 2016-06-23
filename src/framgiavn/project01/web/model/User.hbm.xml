@@ -7,7 +7,7 @@
 		dynamic-insert="true" dynamic-update="true">
 		<id name="id" type="java.lang.Integer">
 			<column name="id" length="10" />
-			<!--   <generator class="assigned" /> -->
+			<!-- <generator class="assigned" /> -->
 			<generator class="increment" />
 		</id>
 
@@ -34,14 +34,14 @@
 	<query name="User.SelectUserByUserId">
 		select user
 		from User user
-		where user.id =
-		:userId
+		where user.id = :user_id
 	</query>
 	<query name="User.SearchUserByUser">
-		select user 
-		from User user 
-		where user.email = :email and 
-			user.password = :password
+		select user
+		from User user
+		where user.email = :email
+		and
+		user.password = :password
 	</query>
 	<query name="User.SelectUserByEmail">
 		select user
@@ -49,21 +49,63 @@
 		where user.email = :email
 	</query>
 	<query name="User.GetFollowingListByUserId">
-    	select user
-    	from User user, Relationship relationship 
-    	where relationship.followerId = :user_id and
-    		user.id = relationship.followingId
-    </query>
-    <query name="User.GetActivityListByUserId">
+		select user
+		from User user, Relationship relationship
+		where relationship.followerId = :user_id and
+		user.id =
+		relationship.followingId
+	</query>
+	<query name="User.GetActivityListByUserId">
 		from Activity activity
-		where activity.userId = :user_id 
-    </query>
-    <query name="User.GetWordLearnedListByUserId">
-        select distinct word
-    	from LessonWord lessonWord, Word word, Lesson lesson
-    	where  lesson.userId = :user_id and
-    		lessonWord.lessonId = lesson.id and
-    	    lessonWord.wordId = word.id and
-    		lessonWord.wordAnswerId is not null
-    </query>
+		where activity.userId =
+		:user_id
+	</query>
+	<query name="User.FindWordNotLearnedInCategory">
+		select distinct word
+		from Word word
+		where word.id not in (
+		select
+		distinct wordIn.id
+		from LessonWord lessonWord, Word wordIn, Lesson lesson
+		where lesson.userId = :user_id and
+		lessonWord.lessonId = lesson.id and
+		lessonWord.wordId = wordIn.id and
+		wordIn.categoryId = :category_id and
+		lessonWord.wordAnswerId is not null
+		) and word.categoryId=:category_id
+	</query>
+	<query name="User.FindWordLearned">
+		select count(distinct word)
+		from LessonWord
+		lessonWord, Word word, Lesson lesson
+		where lesson.userId = :user_id and
+		lessonWord.lessonId = lesson.id and
+		lessonWord.wordId = word.id and
+		lessonWord.wordAnswerId is not null
+	</query>
+	<query name="User.GetWordLearnedListByUserId">
+		select distinct word
+		from LessonWord lessonWord, Word
+		word, Lesson lesson
+		where lesson.userId = :user_id and
+		lessonWord.lessonId = lesson.id and
+		lessonWord.wordId = word.id and
+		lessonWord.wordAnswerId is not null
+	</query>
+	<query name="User.FindAnswers">
+		from WordAnswer wordAnswer
+		where wordAnswer.wordId =
+		:word_id
+	</query>
+	<query name="User.SelectWordAnswer">
+		select wordAnswer.id
+		from WordAnswer wordAnswer
+		where
+		wordAnswer.content = :wordAnswer_content
+	</query>
+	<query name="User.GetResultByWordAnswerId">
+		select wordAnswer.correct
+		from WordAnswer wordAnswer
+		where wordAnswer.id=:wordAnswerId
+	</query>
 </hibernate-mapping>

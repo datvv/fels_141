@@ -20,4 +20,6 @@ public interface CategoryBusiness {
 	 * @throws Exception
 	 */
 	public List<Category> listAllCategory();
+
+	public Category findByCategoryId(int category_id) throws Exception;
 }

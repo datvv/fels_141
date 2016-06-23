@@ -42,6 +42,10 @@
         	,/WEB-INF/configs/tiles-defs-user.xml
         </param-value>
 	</context-param>
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>msg</param-value>
+	</context-param>
 	<!-- Define Tiles configuration files -->
 	<!-- Define Tiles 2 Listener -->
 	<!-- Define Listener for Spring -->
@@ -60,7 +64,7 @@
 	</listener>
 	<!-- Define Welcome File List -->
 	<welcome-file-list>
-		<!--  <welcome-file>index.jsp</welcome-file> -->
+		<!-- <welcome-file>index.jsp</welcome-file> -->
 		<welcome-file></welcome-file>
 	</welcome-file-list>
 

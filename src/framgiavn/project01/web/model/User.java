@@ -20,7 +20,7 @@ public class User implements Serializable {
 	List<Activity> activityList;
 	List<User> followingList;
 	List<Word> wordLearnedList;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -68,7 +68,7 @@ public class User implements Serializable {
 	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
-	
+
 	public List<Activity> getActivityList() {
 		return activityList;
 	}
@@ -76,7 +76,7 @@ public class User implements Serializable {
 	public void setActivityList(List<Activity> activityList) {
 		this.activityList = activityList;
 	}
-	
+
 	public List<User> getFollowingList() {
 		return followingList;
 	}
@@ -84,7 +84,7 @@ public class User implements Serializable {
 	public void setFollowingList(List<User> followingList) {
 		this.followingList = followingList;
 	}
-	
+
 	public List<Word> getWordLearnedList() {
 		return wordLearnedList;
 	}

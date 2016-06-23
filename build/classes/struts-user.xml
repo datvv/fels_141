@@ -24,31 +24,44 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
 		</result-types>
+
 		<action name="loginAction" class="springUserLoginAction"
 			method="checkUserLogin">
 			<result name="input">LogIn</result>
 			<result name="success">LogInSuccess</result>
 			<result name="error">LogIn</result>
 		</action>
+
 		<action name="logoutAction" class="springUserLoginAction"
 			method="logout">
 			<result name="success">LogIn</result>
 		</action>
+
 		<action name="wordlistAction" class="springWordListFilterAction"
 			method="execute">
 			<result name="success">WordList</result>
 		</action>
+
 		<action name="signUp" class="springUserAction" method="signUp">
 			<result name="input">SignUp</result>
 			<result name="success">LogIn</result>
 			<result name="error">SignUp</result>
-		</action>	
-		<action name="goToWordList" class="springHomeScreenAction" method="goToWordList">
+		</action>
+
+		<action name="goToWordList" class="springHomeScreenAction"
+			method="goToWordList">
 			<result name="success">WordList</result>
 		</action>
-		<action name="goToCategories" class="springHomeScreenAction" method="goToCategories">
+
+		<action name="goToCategories" class="springHomeScreenAction"
+			method="goToCategories">
 			<result name="success">Categories</result>
 		</action>
+
+		<action name="solveProblem" class="springLessonScreenAction"
+			method="solveProblem">
+			<result name="success">LessonScreen</result>
+			<result name="error">Result</result>
+		</action>
 	</package>
-	
 </struts>

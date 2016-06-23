@@ -41,15 +41,14 @@
 			<list>
 				<value>framgiavn/project01/web/model/User.hbm.xml</value>
 				<value>framgiavn/project01/web/model/Category.hbm.xml</value>
-				<value>framgiavn/project01/web/model/WordAnswer.hbm.xml</value>
-				<value>framgiavn/project01/web/model/Activity.hbm.xml</value>
 				<value>framgiavn/project01/web/model/Relationship.hbm.xml</value>
-				<value>framgiavn/project01/web/model/Word.hbm.xml</value>
+				<value>framgiavn/project01/web/model/Activity.hbm.xml</value>
 				<value>framgiavn/project01/web/model/Lesson.hbm.xml</value>
+				<value>framgiavn/project01/web/model/Word.hbm.xml</value>
+				<value>framgiavn/project01/web/model/WordAnswer.hbm.xml</value>
 				<value>framgiavn/project01/web/model/LessonWord.hbm.xml</value>
 			</list>
 		</property>
-
 	</bean>
 
 	<!-- Transaction manager for a single Hibernate SessionFactory -->
@@ -81,6 +80,9 @@
 		scope="prototype">
 	</bean>
 	<bean id="springHomeScreenAction" class="framgiavn.project01.web.action.HomeScreenAction"
+		scope="prototype">
+	</bean>
+	<bean id="springLessonScreenAction" class="framgiavn.project01.web.action.LessonScreenAction"
 		scope="prototype">
 	</bean>
 </beans>

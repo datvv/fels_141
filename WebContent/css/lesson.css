@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+.leftLesson{
+	float: left;
+	width: 50%;
+}
+
+.rightLesson{
+	float: right;
+	width: 50%;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+#feedback { 
+	font-size: 1.6em;
+	font-weight: bold;
+}

@@ -19,5 +19,11 @@
 		select category
 		from Category category
 	</query>
-
+	<query name="Category.SelectCategoryById">
+		select category
+		from Category category
+		where
+		category.id=
+		:category_id
+	</query>
 </hibernate-mapping>

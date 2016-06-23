@@ -9,7 +9,15 @@ package framgiavn.project01.web.model;
  * @author vuvandat
  *
  */
-public class WordAnswer {
+import java.io.Serializable;
+
+public class WordAnswer implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int id;
 	private String content;
 	private int wordId;

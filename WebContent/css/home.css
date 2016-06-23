@@ -1,16 +1,16 @@
 @CHARSET "UTF-8";
 
-.leftHome{
+.leftHome {
 	float: left;
-	width: 30%;	
+	width: 30%;
 }
 
-.rightHome{
+.rightHome {
 	float: right;
 	width: 70%;
 }
 
-#actTitle { 
+#actTitle {
 	font-size: 1.0em;
 	font-weight: bold;
 }

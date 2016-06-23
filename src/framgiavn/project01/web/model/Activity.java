@@ -6,21 +6,21 @@ import java.io.Serializable;
  * @author nguyenanhvan
  *
  */
-public class Activity implements Serializable {	
+public class Activity implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private int id;
 	private int targetId;
 	private int userId;
 	private String actionType;
-	
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -48,5 +48,5 @@ public class Activity implements Serializable {
 	public void setActionType(String actionType) {
 		this.actionType = actionType;
 	}
-	
+
 }

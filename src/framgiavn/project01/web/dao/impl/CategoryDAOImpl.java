@@ -8,12 +8,32 @@ import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import framgiavn.project01.web.dao.CategoryDAO;
 import framgiavn.project01.web.model.Category;
+import framgiavn.project01.web.ulti.Logit2;
 
 /**
  * @author vuvandat
  *
  */
+
 public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO {
+
+	// private static final Logit2 log = Logit2.getInstance(UserDAOImpl.class);
+	protected void initDAO() {
+
+	}
+
+	@Override
+	public Category findByCategoryId(int category_id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("Category.SelectCategoryById");
+			query.setParameter("category_id", category_id);
+			Category category = (Category) query.uniqueResult();
+			return category;
+		} catch (RuntimeException re) {
+			// log.error("get failed", re);
+			throw re;
+		}
+	}
 
 	@Override
 	public List<Category> listAllCategory() throws Exception {
