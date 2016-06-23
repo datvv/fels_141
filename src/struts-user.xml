@@ -38,10 +38,39 @@
 		</action>
 
 		<action name="wordlistAction" class="springWordListFilterAction"
-			method="execute">
+			method="filterWordList">
 			<result name="success">WordList</result>
 		</action>
+	</package>
+	<package name="json" namespace="/" extends="json-default">
+		<action name="filterAction" class="springWordListFilterAction"
+			method="filterWordList">
+			<result type="json">
+				<param name="excludeProperties">
+					model.cacheData
+				</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="input" type="json">
+				<param name="excludeProperties">
+					model.cacheData
+				</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="excludeProperties">
+					model.cacheData
+				</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
 
+	<package name="register" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
+		</result-types>
 		<action name="signUp" class="springUserAction" method="signUp">
 			<result name="input">SignUp</result>
 			<result name="success">LogIn</result>

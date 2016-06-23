@@ -3,9 +3,9 @@
  */
 package framgiavn.project01.web.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import framgiavn.project01.web.business.CategoryBusiness;
@@ -20,23 +20,29 @@ import framgiavn.project01.web.model.*;
  */
 public class WordListFilterAction extends ActionSupport {
 
-	private static int userId = 0;
 	private CategoryBusiness categoryBusiness = null;
 	private WordCategoryBusiness wordCategoryBusiness;
 	private List<Category> listCategory = null;
 	private List<WordCategory> listWordCategory = null;
+	private String learnedStatus = "";
+	private String selectedCategory = "";
+	private List<String> listLearnedStatus;
 
 	/**
-	 * Show list all words and categories
+	 * Show category and word list by conditions (learned, notlearned,all)
 	 * 
-	 * @return success: return word_list page
+	 * @return success: return sorted list words
 	 */
-	@Override
-	public String execute() throws Exception {
+	public String filterWordList() throws Exception {
+
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		User user = (User) session.get("currentUser");
+		listLearnedStatus = new ArrayList<String>();
+		listLearnedStatus.add(ElearningConstants.LEARNED);
+		listLearnedStatus.add(ElearningConstants.NOT_LEARNED);
+		listLearnedStatus.add(ElearningConstants.ALL);
 		listCategory = categoryBusiness.listAllCategory();
-		listWordCategory = wordCategoryBusiness.getListWordCategory();
+		listWordCategory = wordCategoryBusiness.getListWordByCategory(selectedCategory, learnedStatus, user.getId());
 		return SUCCESS;
 	}
 
@@ -48,24 +54,8 @@ public class WordListFilterAction extends ActionSupport {
 		this.listCategory = listCategory;
 	}
 
-	public CategoryBusiness getCategoryBusiness() {
-		return categoryBusiness;
-	}
-
 	public void setCategoryBusiness(CategoryBusiness categoryBusiness) {
 		this.categoryBusiness = categoryBusiness;
-	}
-
-	public static int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public WordCategoryBusiness getWordCategoryBusiness() {
-		return wordCategoryBusiness;
 	}
 
 	public void setWordCategoryBusiness(WordCategoryBusiness wordCategoryBusiness) {
@@ -78,6 +68,30 @@ public class WordListFilterAction extends ActionSupport {
 
 	public void setListWordCategory(List<WordCategory> listWordCategory) {
 		this.listWordCategory = listWordCategory;
+	}
+
+	public String getLearnedStatus() {
+		return learnedStatus;
+	}
+
+	public void setLearnedStatus(String learnedStatus) {
+		this.learnedStatus = learnedStatus;
+	}
+
+	public String getSelectedCategory() {
+		return selectedCategory;
+	}
+
+	public void setSelectedCategory(String selectedCategory) {
+		this.selectedCategory = selectedCategory;
+	}
+
+	public List<String> getListLearnedStatus() {
+		return listLearnedStatus;
+	}
+
+	public void setListLearnedStatus(List<String> listLearnedStatus) {
+		this.listLearnedStatus = listLearnedStatus;
 	}
 
 }

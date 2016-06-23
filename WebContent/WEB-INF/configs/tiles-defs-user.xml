@@ -47,6 +47,8 @@
 	<definition name="WordList" extends="Default.Web">
 		<put-attribute name="body" value="/user/wordList.jsp" />
 		<put-list-attribute name="js">
+			<add-attribute value="/js/jquery-1.7.1.js" />
+			<add-attribute value="/js/filter.js" />
 		</put-list-attribute>
 		<put-list-attribute name="css">
 			<add-attribute value="/css/style.css" />
