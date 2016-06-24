@@ -1,6 +1,8 @@
 package framgiavn.project01.web.dao.impl;
 
-import java.util.List;
+import java.util.ArrayList;import java.util.List;
+import java.util.Map;
+
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -8,6 +10,7 @@ import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import framgiavn.project01.web.dao.UserDAO;
 import framgiavn.project01.web.model.Activity;
+import framgiavn.project01.web.model.Category;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.model.Word;
 import framgiavn.project01.web.model.WordAnswer;
@@ -186,7 +189,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		try {
 			Query query = getSession().getNamedQuery("User.getResultByWordAnswerId");
 			query.setParameter("user_id", user_id);
-			return (Boolean)query.uniqueResult();
+			return (Boolean) query.uniqueResult();
 		} catch (RuntimeException re) {
 			// log.error("get failed",re);
 			throw re;
@@ -203,6 +206,39 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		}
 	}
 
+	public void createCategoryWordAndAnswer(String categoryName, String wordContent, Map<String, Boolean> wordAnswerMap)
+			throws Exception {
+		Session session = this.getSession();
+		Category category = null;
+		List<WordAnswer> wordAnswerList = null;
+		Word word = this.findWordInCategory(wordContent, categoryName);
+		if (word != null) {
+			return;
+		} else {
+			category = this.findCategoryByName(categoryName);
+			if (category == null) {
+				category = new Category();
+				category.setName(categoryName);
+			}
+			session.save(category);
+			word = new Word();
+			word.setContent(wordContent);
+			word.setCategoryId(category.getId());
+			session.save(word);
+			wordAnswerList = new ArrayList<WordAnswer>();
+			for (Map.Entry<String, Boolean> entry : wordAnswerMap.entrySet()) {
+				WordAnswer wordAnswer = new WordAnswer();
+				wordAnswer.setContent(entry.getKey());
+				wordAnswer.setCorrect(entry.getValue());
+				wordAnswer.setWordId(word.getId());
+				wordAnswerList.add(wordAnswer);
+			}
+		}
+		for (WordAnswer wa : wordAnswerList) {
+			session.save(wa);
+		}
+	}
+
 	@Override
 	public void saveOrUpdateUser(User user) {
 		Session session = getSession();
@@ -214,5 +250,29 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		Session session = getSession();
 		session.delete(user);
 		session.flush();
+	}
+
+	public Category findCategoryByName(String categoryName) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.FindCategoryByName");
+			query.setParameter("category_name", categoryName);
+			return (Category) query.uniqueResult();
+		} catch (RuntimeException re) {
+			re.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Word findWordInCategory(String wordContent, String categoryName) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.FindWordByCategoryName");
+			query.setParameter("category_name", categoryName);
+			query.setParameter("word_content", wordContent);
+			return (Word) query.uniqueResult();
+		} catch (RuntimeException re) {
+			re.printStackTrace();
+		}
+		return null;
 	}
 }

@@ -8,7 +8,10 @@ import framgiavn.project01.web.business.UserBusiness;
 import framgiavn.project01.web.dao.UserDAO;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.ulti.Logit2;
+import framgiavn.project01.web.ulti.WordAndAnswerCSV;
+import framgiavn.project01.web.ulti.WordAnswerObjectCSV;
 import framgiavn.project01.web.model.Activity;
+import framgiavn.project01.web.model.Category;
 import framgiavn.project01.web.model.Word;
 import framgiavn.project01.web.model.WordAnswer;
 
@@ -243,6 +246,48 @@ public class UserBusinessImpl implements UserBusiness {
 		} catch (Exception e) {
 			log.error("get failed :", e);
 		}
+	}
+
+	public void createWordAnswerByCSV(List<WordAnswerObjectCSV> wordAndAnswerList) throws Exception {
+		try {
+			for (WordAnswerObjectCSV wa : wordAndAnswerList) {
+				this.createCategoryWordAndAnswer(wa.getCategoryName(), wa.getWordContent(), wa.getWordAnswerMap());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void createCategoryWordAndAnswer(String categoryName, String wordContent, Map<String, Boolean> wordAnswerMap)
+			throws Exception {
+		try {
+			getUserDAO().createCategoryWordAndAnswer(categoryName, wordContent, wordAnswerMap);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Category findCategoryByName(String categoryName) throws Exception {
+		try {
+			return getUserDAO().findCategoryByName(categoryName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Word findWordInCategory(String wordContent, String categoryName) throws Exception {
+		try {
+			return getUserDAO().findWordInCategory(wordContent, categoryName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

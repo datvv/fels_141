@@ -25,11 +25,36 @@
 				exception="java.lang.RuntimeException" />
 		</global-exception-mappings>
 
-		<action name="" class="springLessonScreenAction" method="solveProblem">
-			<result>LogIn</result>
+		<action name="" class="springAdminControlAction" method="importCSV">
+			<result>ImportCSV</result>
 		</action>
 
 	</package>
+	<package name="default-web-admin" namespace="/admin" extends="json-default">
+
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
+		</result-types>
+
+		<global-results>
+			<!-- Define Exception Forward -->
+			<result name="sys_exception">Default.SystemException</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="sys_exception"
+				exception="java.lang.Exception" />
+			<exception-mapping result="sys_exception"
+				exception="java.lang.RuntimeException" />
+		</global-exception-mappings>
+
+		<action name="" class="springManageUserAction" method="adminPage">
+			<result>ADMIN_PAGE</result>
+		</action>
+
+	</package>
+
 
 	<!-- ===== Include Web Module Configuration ===== -->
 	<include file="struts-user.xml" />
