@@ -85,4 +85,7 @@
 	<bean id="springLessonScreenAction" class="framgiavn.project01.web.action.LessonScreenAction"
 		scope="prototype">
 	</bean>
+	<bean id="springCategoriesScreenAction" class="framgiavn.project01.web.action.CategoriesScreenAction"
+		scope="prototype">
+	</bean>
 </beans>

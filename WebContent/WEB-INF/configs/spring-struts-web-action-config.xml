@@ -23,8 +23,10 @@
 
 	<bean id="springLessonScreenAction" class="framgiavn.project01.web.action.LessonScreenAction">
 		<property name="userBusiness" ref="UserBusiness" />
-		<property name="categoryBusiness" ref="CategoryBusiness" />
 		<property name="lessonBusiness" ref="LessonBusiness" />
 		<property name="lessonWordBusiness" ref="LessonWordBusiness" />
+	</bean>
+	<bean id="springCategoriesScreenAction" class="framgiavn.project01.web.action.CategoriesScreenAction">
+		<property name="lessonCategoryBusiness" ref="LessonCategoryBusiness" />
 	</bean>
 </beans>

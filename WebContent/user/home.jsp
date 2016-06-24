@@ -30,8 +30,8 @@
 			</s:form>
 			</div>
 			<div class="ui-button ui-widget">
-				<s:form>
-					<s:submit type="button" action="goToCategories">
+				<s:form action="showCategoriesAction" method="post">
+					<s:submit type="button" >
 						<s:param name="value">
 							<fmt:message key="msg.lesson.button.submit" />
 						</s:param>
