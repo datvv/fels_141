@@ -91,4 +91,7 @@
 	<bean id="springManageUserAction" class="framgiavn.project01.web.action.ManageUserAction"
 		scope="prototype">
 	</bean>
+	<bean id="springManageCategoryAction" class="framgiavn.project01.web.action.ManageCategoryAction"
+		scope="prototype">
+	</bean>
 </beans>

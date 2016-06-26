@@ -5,6 +5,7 @@ package framgiavn.project01.web.dao.impl;
 
 import java.util.List;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import framgiavn.project01.web.dao.CategoryDAO;
 import framgiavn.project01.web.model.Category;
@@ -43,6 +44,19 @@ public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO 
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public void saveOrUpdateCategory(Category category) {
+		Session session = getSession();
+		session.saveOrUpdate(category);
+	}
+
+	@Override
+	public void deleteCategory(Category category) throws Exception {
+		Session session = getSession();
+		session.delete(category);
+		session.flush();
 	}
 
 }

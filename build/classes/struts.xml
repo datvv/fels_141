@@ -26,7 +26,11 @@
 		</global-exception-mappings>
 
 		<action name="" class="springLessonScreenAction" method="solveProblem">
+<<<<<<< HEAD
 			<result>LogIn</result>
+=======
+			<result>ADMIN_PAGE</result>
+>>>>>>> Admin_manage_categories(add, edit, delete category)
 		</action>
 
 	</package>

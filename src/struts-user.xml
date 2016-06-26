@@ -41,6 +41,7 @@
 			method="filterWordList">
 			<result name="success">WordList</result>
 		</action>
+
 		<action name="showCategoriesAction" class="springCategoriesScreenAction"
 			method="showCategories">
 			<result name="success">CATEGORIES</result>
@@ -122,6 +123,37 @@
 			method="updateAndSaveUser">
 			<result name="success" type="redirectAction">showListUser</result>
 		</action>
+		
+		<action name="manageCategoryAcion" class="springManageCategoryAction"
+			method="listCategory">
+			<result name="success">LIST_CATEGORY</result>
+		</action>
+		
+		<action name="categoryUpdateAction" class="springManageCategoryAction"
+			method="updateCategory">
+			<result name="success">UPDATE_CATEGORY</result>
+		</action>
+		
+		<action name="updateAndSaveCategory" class="springManageCategoryAction"
+			method="updateAndSaveCategory">
+			<result name="success" type="redirectAction">manageCategoryAcion</result>
+		</action>
+		
+		<action name="addCategoryAction" class="springManageCategoryAction"
+			method="addCategory">
+			<result name="success">ADD_CATEGORY</result>
+		</action>
+		
+		<action name="addAndSaveCategoryAction" class="springManageCategoryAction"
+			method="addAndSaveCategory">
+			<result name="success" type="redirectAction">manageCategoryAcion</result>
+		</action>
+		
+		<action name="deleteCategoryAction" class="springManageCategoryAction"
+			method="deleteCategory">
+			<result name="success" type="redirectAction">manageCategoryAcion</result>
+		</action>
+		
 	</package>
 
 </struts>

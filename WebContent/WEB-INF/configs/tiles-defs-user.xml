@@ -84,15 +84,24 @@
 	
 	<definition name="CATEGORIES" extends="Default.Web">
 		<put-attribute name="body" value="/user/categories.jsp" />
+				<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="ADMIN_PAGE" extends="Default.Web">
+		<put-attribute name="body" value="/admin/adminPage.jsp" />
 		<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">
 			<add-attribute value="/css/style.css" />
 		</put-list-attribute>
 	</definition>
-		
-	<definition name="ADMIN_PAGE" extends="Default.Web">
-		<put-attribute name="body" value="/admin/adminPage.jsp" />
+
+	<definition name="LIST_CATEGORY" extends="Default.Web">
+		<put-attribute name="body" value="/admin/listCategory.jsp" />
 		<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">
@@ -108,9 +117,27 @@
 			<add-attribute value="/css/style.css" />
 		</put-list-attribute>
 	</definition>
+
+	<definition name="UPDATE_CATEGORY" extends="Default.Web">
+		<put-attribute name="body" value="/admin/updateCategory.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
 	
 	<definition name="UPDATE_USER" extends="Default.Web">
 		<put-attribute name="body" value="/admin/updateUser.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="ADD_CATEGORY" extends="Default.Web">
+		<put-attribute name="body" value="/admin/addCategory.jsp" />
 		<put-list-attribute name="js">
 		</put-list-attribute>
 		<put-list-attribute name="css">

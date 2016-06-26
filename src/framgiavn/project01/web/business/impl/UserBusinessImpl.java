@@ -50,7 +50,7 @@ public class UserBusinessImpl implements UserBusiness {
 		try {
 			return getUserDAO().checkExistUser(user);
 		} catch (Exception e) {
-			log.error("get failed ", e);
+//			log.error("get failed ", e);
 			e.printStackTrace();
 		}
 		return null;

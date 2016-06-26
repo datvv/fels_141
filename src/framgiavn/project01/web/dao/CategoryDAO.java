@@ -23,4 +23,7 @@ public interface CategoryDAO {
 
 	public Category findByCategoryId(int category_id) throws Exception; 
 	
+	public void saveOrUpdateCategory(Category category);
+	
+	public void deleteCategory(Category category) throws Exception;
 }

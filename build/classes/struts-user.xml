@@ -41,6 +41,7 @@
 			method="filterWordList">
 			<result name="success">WordList</result>
 		</action>
+<<<<<<< HEAD
 		<action name="showCategoriesAction" class="springCategoriesScreenAction"
 			method="showCategories">
 			<result name="success">CATEGORIES</result>
@@ -67,6 +68,29 @@
 			<result name="error">Result</result>
 		</action>
 		
+=======
+		<action name="manageCategoryAcion" class="springManageCategoryAction"
+			method="listCategory">
+			<result name="success">LIST_CATEGORY</result>
+		</action>
+		<action name="categoryUpdateAction" class="springManageCategoryAction"
+			method="updateCategory">
+			<result name="success">UPDATE_CATEGORY</result>
+		</action>
+		<action name="saveUpdateCategory" class="springManageCategoryAction"
+			method="saveUpdateCategory">
+			<result name="success" type="redirectAction">manageCategoryAcion</result>
+		</action>
+		<action name="addCategoryAction" class="springManageCategoryAction"
+			method="addCategory">
+			<result name="success">ADD_CATEGORY</result>
+		</action>
+		<action name="saveCategoryAction" class="springManageCategoryAction"
+			method="saveCategory">
+			<result name="success" type="redirectAction">manageCategoryAcion</result>
+		</action>
+
+>>>>>>> Admin_manage_categories(add, edit, delete category)
 	</package>
 	<package name="json" namespace="/" extends="json-default">
 		<action name="filterAction" class="springWordListFilterAction"
@@ -91,4 +115,35 @@
 			</result>
 		</action>
 	</package>
+<<<<<<< HEAD
+=======
+
+	<package name="register" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
+		</result-types>
+		<action name="signUp" class="springUserAction" method="signUp">
+			<result name="input">SignUp</result>
+			<result name="success">LogIn</result>
+			<result name="error">SignUp</result>
+		</action>
+
+		<action name="goToWordList" class="springHomeScreenAction"
+			method="goToWordList">
+			<result name="success">WordList</result>
+		</action>
+
+		<action name="goToCategories" class="springHomeScreenAction"
+			method="goToCategories">
+			<result name="success">Categories</result>
+		</action>
+
+		<action name="solveProblem" class="springLessonScreenAction"
+			method="solveProblem">
+			<result name="success">LessonScreen</result>
+			<result name="error">Result</result>
+		</action>
+	</package>
+>>>>>>> Admin_manage_categories(add, edit, delete category)
 </struts>
