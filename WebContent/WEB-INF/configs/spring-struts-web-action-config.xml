@@ -30,13 +30,16 @@
 	<bean id="springCategoriesScreenAction" class="framgiavn.project01.web.action.CategoriesScreenAction">
 		<property name="lessonCategoryBusiness" ref="LessonCategoryBusiness" />
 	</bean>
-
-	<bean id="springManageUserAction" class="framgiavn.project01.web.action.ManageUserAction"
-		scope="prototype">
-		<property name="userBusiness" ref="UserBusiness" />
-	</bean>
 	
 	<bean id="springAdminControlAction" class="framgiavn.project01.web.action.AdminControlAction">
 		<property name="userBusiness" ref="UserBusiness" />
+	</bean>
+	
+	<bean id="springManageUserAction" class="framgiavn.project01.web.action.ManageUserAction">
+		<property name="userBusiness" ref="UserBusiness" />
+	</bean>
+
+	<bean id="springManageCategoryAction" class="framgiavn.project01.web.action.ManageCategoryAction">
+		<property name="categoryBusiness" ref="CategoryBusiness" />
 	</bean>
 </beans>

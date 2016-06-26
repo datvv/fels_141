@@ -21,5 +21,9 @@ public interface CategoryBusiness {
 	 */
 	public List<Category> listAllCategory();
 
-	public Category findByCategoryId(int category_id) throws Exception;
+	public Category findByCategoryId(int category_id);
+
+	public void updateAndSaveCategory(Category category);
+
+	public void deleteCategory(Category category);
 }

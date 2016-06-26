@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<div id="wrapper" style="">
+<div id="wrapper">
 	<div id="topAdmin">
 		<p><fmt:message key="admin.title" /></p>
 	</div>

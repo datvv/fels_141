@@ -94,4 +94,7 @@
 	<bean id="springAdminControlAction" class="framgiavn.project01.web.action.AdminControlAction"
 		scope="prototype">
 	</bean>
+	<bean id="springManageCategoryAction" class="framgiavn.project01.web.action.ManageCategoryAction"
+		scope="prototype">
+	</bean>
 </beans>
