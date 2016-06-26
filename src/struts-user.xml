@@ -45,6 +45,7 @@
 			method="showCategories">
 			<result name="success">CATEGORIES</result>
 		</action>
+
 		<action name="signUp" class="springUserAction" method="signUp">
 			<result name="input">SignUp</result>
 			<result name="success">LogIn</result>
@@ -66,7 +67,7 @@
 			<result name="success">LessonScreen</result>
 			<result name="error">Result</result>
 		</action>
-		
+
 	</package>
 	<package name="json" namespace="/" extends="json-default">
 		<action name="filterAction" class="springWordListFilterAction"
@@ -91,4 +92,36 @@
 			</result>
 		</action>
 	</package>
+	<package name="admin" namespace="/admin" extends="default-web-admin">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
+		</result-types>
+		
+		<action name="adminPageAction" class="springManageUserAction"
+			method="adminPage">
+			<result name="success">ADMIN_PAGE</result>
+		</action>
+		
+		<action name="showListUser" class="springManageUserAction"
+			method="showListUser">
+			<result name="success">LIST_USER</result>
+		</action>
+
+		<action name="deleteUserAction" class="springManageUserAction"
+			method="deleteUser">
+			<result name="success" type="redirectAction">showListUser</result>
+		</action>
+
+		<action name="userUpdateAction" class="springManageUserAction"
+			method="updateUser">
+			<result name="success">UPDATE_USER</result>
+		</action>
+
+		<action name="updateAndSaveAction" class="springManageUserAction"
+			method="updateAndSaveUser">
+			<result name="success" type="redirectAction">showListUser</result>
+		</action>
+	</package>
+
 </struts>

@@ -36,4 +36,15 @@ public interface UserDAO {
 
 	public Boolean getResultByWordAnswerId(int user_id) throws Exception;
 
+	/**
+	 * Get list user in database
+	 * 
+	 * @return list user
+	 */
+	public List<User> getListUser() throws Exception;
+
+	public void saveOrUpdateUser(User user) throws Exception;
+
+	public void deleteUser(User user) throws Exception;
+
 }

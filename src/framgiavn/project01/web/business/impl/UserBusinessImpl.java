@@ -217,4 +217,32 @@ public class UserBusinessImpl implements UserBusiness {
 		return null;
 	}
 
+	@Override
+	public List<User> getListUser() {
+		try {
+			return getUserDAO().getListUser();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void saveOrUpdateUser(User user) {
+		try {
+			this.getUserDAO().saveOrUpdateUser(user);
+		} catch (Exception e) {
+			log.error("get failed :", e);
+		}
+	}
+
+	@Override
+	public void deleteUser(User user) {
+		try {
+			this.getUserDAO().deleteUser(user);
+		} catch (Exception e) {
+			log.error("get failed :", e);
+		}
+	}
+
 }

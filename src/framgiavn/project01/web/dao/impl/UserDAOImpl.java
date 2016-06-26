@@ -1,7 +1,6 @@
 package framgiavn.project01.web.dao.impl;
 
 import java.util.List;
-
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -192,5 +191,28 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 			// log.error("get failed",re);
 			throw re;
 		}
+	}
+
+	@Override
+	public List<User> getListUser() {
+		Query query = getSession().getNamedQuery("User.GetListUser");
+		if (query.list() != null) {
+			return (List<User>) query.list();
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void saveOrUpdateUser(User user) {
+		Session session = getSession();
+		session.saveOrUpdate(user);
+	}
+
+	@Override
+	public void deleteUser(User user) {
+		Session session = getSession();
+		session.delete(user);
+		session.flush();
 	}
 }
