@@ -28,7 +28,7 @@
 		<action name="loginAction" class="springUserLoginAction"
 			method="checkUserLogin">
 			<result name="input">LogIn</result>
-			<result name="success">LogInSuccess</result>
+			<result name="success">HomeScreen</result>
 			<result name="error">LogIn</result>
 		</action>
 
@@ -41,8 +41,32 @@
 			method="filterWordList">
 			<result name="success">WordList</result>
 		</action>
-<<<<<<< HEAD
-=======
+		<action name="showCategoriesAction" class="springCategoriesScreenAction"
+			method="showCategories">
+			<result name="success">CATEGORIES</result>
+		</action>
+		<action name="signUp" class="springUserAction" method="signUp">
+			<result name="input">SignUp</result>
+			<result name="success">LogIn</result>
+			<result name="error">SignUp</result>
+		</action>
+
+		<action name="goToWordList" class="springHomeScreenAction"
+			method="goToWordList">
+			<result name="success">WordList</result>
+		</action>
+
+		<action name="goToCategories" class="springHomeScreenAction"
+			method="goToCategories">
+			<result name="success">Categories</result>
+		</action>
+
+		<action name="solveProblem" class="springLessonScreenAction"
+			method="solveProblem">
+			<result name="success">LessonScreen</result>
+			<result name="error">Result</result>
+		</action>
+		
 	</package>
 	<package name="json" namespace="/" extends="json-default">
 		<action name="filterAction" class="springWordListFilterAction"
@@ -65,36 +89,6 @@
 				</param>
 				<param name="ignoreHierarchy">false</param>
 			</result>
-		</action>
-	</package>
-
-	<package name="register" namespace="/" extends="struts-default">
-		<result-types>
-			<result-type name="tiles"
-				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
-		</result-types>
->>>>>>> Word_List_Screen: Using Ajax allow filtering word list by some conditions (learned, not learned, category)
-
-		<action name="signUp" class="springUserAction" method="signUp">
-			<result name="input">SignUp</result>
-			<result name="success">LogIn</result>
-			<result name="error">SignUp</result>
-		</action>
-
-		<action name="goToWordList" class="springHomeScreenAction"
-			method="goToWordList">
-			<result name="success">WordList</result>
-		</action>
-
-		<action name="goToCategories" class="springHomeScreenAction"
-			method="goToCategories">
-			<result name="success">Categories</result>
-		</action>
-
-		<action name="solveProblem" class="springLessonScreenAction"
-			method="solveProblem">
-			<result name="success">LessonScreen</result>
-			<result name="error">Result</result>
 		</action>
 	</package>
 </struts>

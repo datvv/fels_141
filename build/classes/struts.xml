@@ -26,7 +26,7 @@
 		</global-exception-mappings>
 
 		<action name="" class="springLessonScreenAction" method="solveProblem">
-			<result>LessonScreen</result>
+			<result>LogIn</result>
 		</action>
 
 	</package>

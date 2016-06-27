@@ -47,5 +47,12 @@
 			</bean>
 		</property>
 	</bean>
+	<bean id="LessonCategoryBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.LessonCategoryBusinessImpl">
+				<property name="lessonCategoryDAO" ref="LessonCategoryDAO" />
+			</bean>
+		</property>
+	</bean>
 
 </beans>

@@ -11,6 +11,14 @@ body{
     margin: auto;
     background-color:white;
 }
+#wrapperCat{
+	width: 80%;
+    padding-left: 100px; 
+	padding-right: 100px;
+    border: 1px solid black;
+    margin: auto;
+    background-color: white;
+}
 #top{
     height: 200px;
     width: 500px;
@@ -53,6 +61,7 @@ body{
 .content{
     height: 200px;
     margin-bottom: 50px;
+    margin-top: 50px
 }
 .content-left{
     float:left;
