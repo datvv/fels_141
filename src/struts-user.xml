@@ -37,6 +37,28 @@
 			<result name="success">LogIn</result>
 		</action>
 
+		<action name="signUp" class="springUserAction" method="signUp">
+			<result name="input">SignUp</result>
+			<result name="success">LogIn</result>
+			<result name="error">SignUp</result>
+		</action>
+
+		<action name="goToWordList" class="springHomeScreenAction"
+			method="goToWordList">
+			<result name="success">WordList</result>
+		</action>
+
+		<action name="goToCategories" class="springHomeScreenAction"
+			method="goToCategories">
+			<result name="success">Categories</result>
+		</action>
+
+		<action name="solveProblem" class="springLessonScreenAction"
+			method="solveProblem">
+			<result name="success">LessonScreen</result>
+			<result name="error">Result</result>
+		</action>
+
 		<action name="wordlistAction" class="springWordListFilterAction"
 			method="filterWordList">
 			<result name="success">WordList</result>
@@ -67,7 +89,10 @@
 			<result name="success">LessonScreen</result>
 			<result name="error">Result</result>
 		</action>
-
+		<action name="importCSV" class="springAdminControlAction"
+			method="importCSV">
+			<result name="success"></result>
+		</action>
 	</package>
 	<package name="json" namespace="/" extends="json-default">
 		<action name="filterAction" class="springWordListFilterAction"
@@ -123,5 +148,4 @@
 			<result name="success" type="redirectAction">showListUser</result>
 		</action>
 	</package>
-
 </struts>

@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import framgiavn.project01.web.model.Activity;
+import framgiavn.project01.web.model.Category;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.model.Word;
 import framgiavn.project01.web.model.WordAnswer;
+import framgiavn.project01.web.ulti.WordAnswerObjectCSV;
 
 public interface UserBusiness {
 	public User findByUserId(Integer user_id) throws Exception;
@@ -45,15 +47,19 @@ public interface UserBusiness {
 
 	public Boolean getResultByWordAnswerId(int user_id) throws Exception;
 
-	/**
-	 * Get list user
-	 * 
-	 * @return list user
-	 */
 	public List<User> getListUser();
 
 	public void saveOrUpdateUser(User user);
 
 	public void deleteUser(User user);
+
+	public void createCategoryWordAndAnswer(String categoryName, String wordContent, Map<String, Boolean> wordAnswerMap)
+			throws Exception;
+
+	public void createWordAnswerByCSV(List<WordAnswerObjectCSV> wordAndAnswerList) throws Exception;
+
+	public Category findCategoryByName(String categoryName) throws Exception;
+
+	public Word findWordInCategory(String wordContent, String categoryName) throws Exception;
 
 }

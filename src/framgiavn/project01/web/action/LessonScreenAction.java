@@ -8,7 +8,6 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import framgiavn.project01.web.business.CategoryBusiness;
 import framgiavn.project01.web.business.LessonBusiness;
 import framgiavn.project01.web.business.LessonWordBusiness;
 import framgiavn.project01.web.business.UserBusiness;
@@ -19,6 +18,7 @@ import framgiavn.project01.web.model.Word;
 import framgiavn.project01.web.model.WordAnswer;
 
 public class LessonScreenAction extends ActionSupport {
+
 	public static final int MAX_NUMBER_WORDS = 20;
 	private int maxWords = MAX_NUMBER_WORDS;
 	private Map<String, Object> session = null;
@@ -35,8 +35,6 @@ public class LessonScreenAction extends ActionSupport {
 	private List<WordAnswer> answerList = null;
 	private String userAnswerContent = null;
 	private int currentWord = 0;
-	private int numberOfTrueAnswer = 0;
-	private int numberOfQuestion = 0;
 
 	public String solveProblem() {
 		session = ActionContext.getContext().getSession();
@@ -56,16 +54,12 @@ public class LessonScreenAction extends ActionSupport {
 				session.put("mapWordAndAnswers", mapWordAndAnswers);
 				session.put("wordList", wordList);
 				session.put("maxWords", maxWords);
-				session.put("numberOfTrueAnswer", numberOfTrueAnswer);
-				session.put("numberOfQuestion", numberOfQuestion);
 			} else {
 				lesson = (Lesson) session.get("lesson");
 				mapWordAndUserAnswer = (Map<Word, WordAnswer>) session.get("mapWordAndUserAnswer");
 				mapWordAndAnswers = (Map<Word, List<WordAnswer>>) session.get("mapWordAndAnswers");
 				wordList = (List<Word>) session.get("wordList");
 				maxWords = (int) session.get("maxWords");
-				numberOfTrueAnswer = (int) session.get("numberOfTrueAnswer");
-				numberOfQuestion = (int) session.get("numberOfQuestion");
 			}
 			word = wordList.get(currentWord);
 			answerList = mapWordAndAnswers.get(word);
@@ -76,15 +70,13 @@ public class LessonScreenAction extends ActionSupport {
 					if (wa.getContent().equals(userAnswerContent)) {
 						mapWordAndUserAnswer.put(wordResult, wa);
 						lessonWordBusiness.createLessonWord(lesson.getId(), wordResult, wa);
-						lessonBusiness.setResultById(lesson.getId(), lesson.getResult() + 1);
-						numberOfQuestion++;
-						if (wa.isCorrect())
-							numberOfTrueAnswer++;
+						if (wa.isCorrect()) {
+							lesson.setResult(lesson.getResult() + 1);
+						}
 						break;
 					}
 				}
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -99,10 +91,10 @@ public class LessonScreenAction extends ActionSupport {
 					mapWordAndUserAnswer.put(wordResult, wa);
 					try {
 						lessonWordBusiness.createLessonWord(lesson.getId(), wordResult, wa);
-						lessonBusiness.setResultById(lesson.getId(), lesson.getResult() + 1);
-						numberOfQuestion++;
-						if (wa.isCorrect())
-							numberOfTrueAnswer++;
+						if (wa.isCorrect()) {
+							lesson.setResult(lesson.getResult() + 1);
+						}
+						lessonBusiness.setResultById(lesson.getId(), lesson.getResult());
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -118,22 +110,6 @@ public class LessonScreenAction extends ActionSupport {
 			session.remove("maxWords");
 			return ERROR;
 		}
-	}
-
-	public int getNumberOfTrueAnswer() {
-		return numberOfTrueAnswer;
-	}
-
-	public void setNumberOfTrueAnswer(int numberOfTrueAnswer) {
-		this.numberOfTrueAnswer = numberOfTrueAnswer;
-	}
-
-	public int getNumberOfQuestion() {
-		return numberOfQuestion;
-	}
-
-	public void setNumberOfQuestion(int numberOfQuestion) {
-		this.numberOfQuestion = numberOfQuestion;
 	}
 
 	public Word getWord() {

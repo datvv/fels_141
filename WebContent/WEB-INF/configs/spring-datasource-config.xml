@@ -91,4 +91,7 @@
 	<bean id="springManageUserAction" class="framgiavn.project01.web.action.ManageUserAction"
 		scope="prototype">
 	</bean>
+	<bean id="springAdminControlAction" class="framgiavn.project01.web.action.AdminControlAction"
+		scope="prototype">
+	</bean>
 </beans>

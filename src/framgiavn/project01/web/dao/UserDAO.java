@@ -1,8 +1,10 @@
 package framgiavn.project01.web.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import framgiavn.project01.web.model.Activity;
+import framgiavn.project01.web.model.Category;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.model.Word;
 import framgiavn.project01.web.model.WordAnswer;
@@ -47,4 +49,10 @@ public interface UserDAO {
 
 	public void deleteUser(User user) throws Exception;
 
+	public void createCategoryWordAndAnswer(String categoryName, String wordContent, Map<String, Boolean> wordAnswerMap)
+			throws Exception;
+
+	public Category findCategoryByName(String categoryName) throws Exception;
+
+	public Word findWordInCategory(String wordContent, String categoryName) throws Exception;
 }

@@ -25,8 +25,8 @@
 				exception="java.lang.RuntimeException" />
 		</global-exception-mappings>
 
-		<action name="" class="springUserAction" method="homePage">
-			<result>LogIn</result>
+		<action name="" class="springAdminControlAction" method="importCSV">
+			<result>ImportCSV</result>
 		</action>
 
 	</package>
@@ -54,7 +54,7 @@
 		</action>
 
 	</package>
-	
+
 
 	<!-- ===== Include Web Module Configuration ===== -->
 	<include file="struts-user.xml" />

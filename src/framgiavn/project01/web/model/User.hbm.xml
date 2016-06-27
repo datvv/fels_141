@@ -63,16 +63,21 @@
 	<query name="User.FindWordNotLearnedInCategory">
 		select distinct word
 		from Word word
-		where word.id not in (
+		where word.id not
+		in (
 		select
 		distinct wordIn.id
-		from LessonWord lessonWord, Word wordIn, Lesson lesson
+		from LessonWord lessonWord, Word wordIn,
+		Lesson lesson
 		where lesson.userId = :user_id and
-		lessonWord.lessonId = lesson.id and
+		lessonWord.lessonId =
+		lesson.id and
 		lessonWord.wordId = wordIn.id and
-		wordIn.categoryId = :category_id and
+		wordIn.categoryId =
+		:category_id and
 		lessonWord.wordAnswerId is not null
-		) and word.categoryId=:category_id
+		) and
+		word.categoryId=:category_id
 	</query>
 	<query name="User.FindWordLearned">
 		select count(distinct word)
@@ -106,7 +111,27 @@
 	<query name="User.GetResultByWordAnswerId">
 		select wordAnswer.correct
 		from WordAnswer wordAnswer
-		where wordAnswer.id=:wordAnswerId
+		where wordAnswer.id = :wordAnswerId
+	</query>
+	<query name="User.FindCategoryByName">
+		select category
+		from Category category
+		where
+		category.name = :category_name
+	</query>
+	<query name="User.SelectWordByContent">
+		select word
+		from Word word
+		where
+		word.content = :word_content
+	</query>
+	<query name="User.FindWordByCategoryName">
+		select word
+		from Word word, Category category
+		where
+		word.categoryId = category.id and
+		category.name = :category_name and
+		word.content = :word_content
 	</query>
 	<query name="User.GetListUser">
 		select user from User user
