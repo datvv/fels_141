@@ -45,4 +45,15 @@ public interface UserBusiness {
 
 	public Boolean getResultByWordAnswerId(int user_id) throws Exception;
 
+	/**
+	 * Get list user
+	 * 
+	 * @return list user
+	 */
+	public List<User> getListUser();
+
+	public void saveOrUpdateUser(User user);
+
+	public void deleteUser(User user);
+
 }

@@ -88,4 +88,7 @@
 	<bean id="springCategoriesScreenAction" class="framgiavn.project01.web.action.CategoriesScreenAction"
 		scope="prototype">
 	</bean>
+	<bean id="springManageUserAction" class="framgiavn.project01.web.action.ManageUserAction"
+		scope="prototype">
+	</bean>
 </beans>

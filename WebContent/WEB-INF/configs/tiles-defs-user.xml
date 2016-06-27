@@ -90,4 +90,31 @@
 			<add-attribute value="/css/style.css" />
 		</put-list-attribute>
 	</definition>
+		
+	<definition name="ADMIN_PAGE" extends="Default.Web">
+		<put-attribute name="body" value="/admin/adminPage.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="LIST_USER" extends="Default.Web">
+		<put-attribute name="body" value="/admin/listUser.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="UPDATE_USER" extends="Default.Web">
+		<put-attribute name="body" value="/admin/updateUser.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
 </tiles-definitions>

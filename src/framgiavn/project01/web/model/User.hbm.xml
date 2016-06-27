@@ -108,4 +108,8 @@
 		from WordAnswer wordAnswer
 		where wordAnswer.id=:wordAnswerId
 	</query>
+	<query name="User.GetListUser">
+		select user from User user
+	</query>
+	
 </hibernate-mapping>
