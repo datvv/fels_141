@@ -54,5 +54,21 @@
 			</bean>
 		</property>
 	</bean>
+	<bean id="WordBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.WordBusinessImpl">
+				<property name="WordDAO" ref="WordDAO" />
+				<property name="categoryDAO" ref="CategoryDAO" />
+				<property name="wordAnswerDAO" ref="WordAnswerDAO" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="WordAnswerBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.WordAnswerBusinessImpl">
+				<property name="WordAnswerDAO" ref="WordAnswerDAO" />
+			</bean>
+		</property>
+	</bean>
 
 </beans>

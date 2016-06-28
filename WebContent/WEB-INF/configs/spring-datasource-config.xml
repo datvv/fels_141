@@ -97,4 +97,7 @@
 	<bean id="springManageCategoryAction" class="framgiavn.project01.web.action.ManageCategoryAction"
 		scope="prototype">
 	</bean>
+	<bean id="springManageWordsAction" class="framgiavn.project01.web.action.ManageWordsAction"
+		scope="prototype">
+	</bean>
 </beans>

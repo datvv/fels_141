@@ -31,7 +31,7 @@ public class CategoryBusinessImpl implements CategoryBusiness {
 		try {
 			return getCategoryDAO().listAllCategory();
 		} catch (Exception e) {
-			log.error("get failed ", e);
+			 log.error("get failed ", e);
 		}
 		return null;
 	}
@@ -51,7 +51,7 @@ public class CategoryBusinessImpl implements CategoryBusiness {
 		try {
 			this.getCategoryDAO().updateAndSaveCategory(category);
 		} catch (Exception e) {
-			log.error("get failed ", e);
+			 log.error("get failed ", e);
 		}
 
 	}
@@ -61,9 +61,19 @@ public class CategoryBusinessImpl implements CategoryBusiness {
 		try {
 			this.getCategoryDAO().deleteCategory(category);
 		} catch (Exception e) {
-			log.error("get failed ", e);
+			 log.error("get failed ", e);
 		}
 
+	}
+
+	@Override
+	public Category findCategoryByCategoryName(String categoryName) {
+		try {
+			return getCategoryDAO().findCategoryByCategoryName(categoryName);
+		} catch (Exception e) {
+			 log.error("get failed ", e);
+		}
+		return null;
 	}
 
 }

@@ -152,4 +152,33 @@
 			<add-attribute value="/css/style.css" />
 		</put-list-attribute>
 	</definition>
+	
+	<definition name="LIST_WORDS" extends="Default.Web">
+		<put-attribute name="body" value="/admin/listWords.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="EDIT_WORDS" extends="Default.Web">
+		<put-attribute name="body" value="/admin/editWords.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="ADD_WORDS" extends="Default.Web">
+		<put-attribute name="body" value="/admin/addWordAndAnswer.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+			<add-attribute value="/css/style.css" />
+		</put-list-attribute>
+	</definition>
+	
+	
 </tiles-definitions>

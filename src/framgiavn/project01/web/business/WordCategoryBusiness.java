@@ -33,4 +33,6 @@ public interface WordCategoryBusiness {
 	 * @return list filtered words
 	 */
 	public List<WordCategory> getListWordByCategory(String category, String learnedStatus, int userId);
+	
+	public List<WordCategory> getListWordByCategory(String category);
 }

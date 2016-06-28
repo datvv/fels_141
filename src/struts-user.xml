@@ -123,12 +123,12 @@
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" default="true" />
 		</result-types>
-		
+
 		<action name="adminPageAction" class="springManageUserAction"
 			method="adminPage">
 			<result name="success">ADMIN_PAGE</result>
 		</action>
-		
+
 		<action name="showListUser" class="springManageUserAction"
 			method="showListUser">
 			<result name="success">LIST_USER</result>
@@ -148,36 +148,71 @@
 			method="updateAndSaveUser">
 			<result name="success" type="redirectAction">showListUser</result>
 		</action>
-		
+
 		<action name="manageCategoryAcion" class="springManageCategoryAction"
 			method="listCategory">
 			<result name="success">LIST_CATEGORY</result>
 		</action>
-		
+
 		<action name="categoryUpdateAction" class="springManageCategoryAction"
 			method="updateCategory">
 			<result name="success">UPDATE_CATEGORY</result>
 		</action>
-		
+
 		<action name="updateAndSaveCategory" class="springManageCategoryAction"
 			method="updateAndSaveCategory">
 			<result name="success" type="redirectAction">manageCategoryAcion</result>
 		</action>
-		
+
 		<action name="addCategoryAction" class="springManageCategoryAction"
 			method="addCategory">
 			<result name="success">ADD_CATEGORY</result>
 		</action>
-		
+
 		<action name="addAndSaveCategoryAction" class="springManageCategoryAction"
 			method="addAndSaveCategory">
 			<result name="success" type="redirectAction">manageCategoryAcion</result>
 		</action>
-		
+
 		<action name="deleteCategoryAction" class="springManageCategoryAction"
 			method="deleteCategory">
 			<result name="success" type="redirectAction">manageCategoryAcion</result>
 		</action>
+
+		<action name="listWordsAction" class="springManageWordsAction"
+			method="showListWords">
+			<result name="success">LIST_WORDS</result>
+		</action>
 		
+		<action name="filterWordsByCategoryAction" class="springManageWordsAction"
+			method="showListWords">
+			<result name="success">LIST_WORDS</result>
+		</action>
+		
+		<action name="editWordsAction" class="springManageWordsAction"
+			method="editWords">
+			<result name="success">EDIT_WORDS</result>
+		</action>
+		
+		<action name="editAndSaveAction" class="springManageWordsAction"
+			method="editAndSaveWords">
+			<result name="success" type="redirectAction">filterWordsByCategoryAction</result>
+		</action>
+		
+		<action name="addWordAndAnswerAction" class="springManageWordsAction"
+			method="addWordAndWordAnswer">
+			<result name="success">ADD_WORDS</result>
+		</action>
+		
+		<action name="addAndSaveWords" class="springManageWordsAction"
+			method="addAndSaveCreatedWords">
+			<result name="success" type="redirectAction">filterWordsByCategoryAction</result>
+		</action>
+		
+		<action name="deleteWordAndAnswer" class="springManageWordsAction"
+			method="deleteWordAndAnswer">
+			<result name="success" type="redirectAction">filterWordsByCategoryAction</result>
+		</action>
+
 	</package>
 </struts>

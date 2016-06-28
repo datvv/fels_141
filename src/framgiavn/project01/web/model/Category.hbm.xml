@@ -29,4 +29,12 @@
 		category.id=
 		:category_id
 	</query>
+	<query name="Category.findCategoryByCategoryName">
+		select category
+		from Category category
+		where
+		category.name=
+		:categoryName
+	</query>
+	
 </hibernate-mapping>

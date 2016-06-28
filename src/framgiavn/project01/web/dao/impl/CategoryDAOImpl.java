@@ -59,4 +59,15 @@ public class CategoryDAOImpl extends HibernateDaoSupport implements CategoryDAO 
 		session.flush();
 	}
 
+	@Override
+	public Category findCategoryByCategoryName(String categoryName) throws Exception {
+		Query query = getSession().getNamedQuery("Category.findCategoryByCategoryName");
+		query.setParameter("categoryName", categoryName);
+		if (query.uniqueResult() != null) {
+			return (Category) query.uniqueResult();
+		} else {
+			return null;
+		}
+	}
+
 }

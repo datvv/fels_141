@@ -26,4 +26,6 @@ public interface CategoryBusiness {
 	public void updateAndSaveCategory(Category category);
 
 	public void deleteCategory(Category category);
+	
+	public Category findCategoryByCategoryName(String categoryName);
 }

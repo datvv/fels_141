@@ -11,7 +11,7 @@
 		<s:a action="manageCategoryAcion">
 			<fmt:message key="admin.manageCategory" />
 		</s:a>
-		<s:a action="manageWordsAcion">
+		<s:a action="listWordsAction">
 			<fmt:message key="admin.manageWord" />
 		</s:a>
 	</div>

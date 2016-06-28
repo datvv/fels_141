@@ -22,4 +22,10 @@
 			<column name="correct" not-null="false" />
 		</property>
 	</class>
+	<query name="WordAnswer.SelectWordAnswerByWordId">
+		select wordAnswer
+		from WordAnswer wordAnswer
+		where wordAnswer.wordId = :wordId
+	</query>
+	
 </hibernate-mapping>

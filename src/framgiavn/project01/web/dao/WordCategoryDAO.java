@@ -32,4 +32,5 @@ public interface WordCategoryDAO {
 	 */
 	public List<WordCategory> getListWordByCategory(String category, String learnedStatus, int userId);
 
+	public List<WordCategory> getListWordByCategory(String category) throws Exception;
 }

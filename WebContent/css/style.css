@@ -120,3 +120,12 @@ body {
 	border: 1px solid black;
 	width: 100%
 }
+
+#wrapperLw{
+	width: 100%;
+	margin: auto;
+	border-top-left-right: 1px solid black;
+	background-color: white;
+	padding-top: 50px
+}
+

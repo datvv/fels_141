@@ -38,6 +38,16 @@ public class WordCategoryBusinessImpl implements WordCategoryBusiness {
 		}
 	}
 
+	@Override
+	public List<WordCategory> getListWordByCategory(String category) {
+		try {
+			return getWordCategoryDAO().getListWordByCategory(category);
+		} catch (Exception e) {
+			log.error("get failed ", e);
+		}
+		return null;
+	}
+
 	public WordCategoryDAO getWordCategoryDAO() {
 		return wordCategoryDAO;
 	}

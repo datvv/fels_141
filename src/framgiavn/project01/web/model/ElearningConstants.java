@@ -11,4 +11,5 @@ public class ElearningConstants {
 	public static final String LEARNED = "learned";
 	public static final String NOT_LEARNED = "notlearned";
 	public static final String ALL = "all";
+	public static final int NUMBER_WORD_ANSWERS = 4;
 }

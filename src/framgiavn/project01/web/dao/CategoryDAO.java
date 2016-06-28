@@ -26,4 +26,6 @@ public interface CategoryDAO {
 	public void updateAndSaveCategory(Category category);
 	
 	public void deleteCategory(Category category) throws Exception;
+	
+	public Category findCategoryByCategoryName(String categoryName) throws Exception;
 }
