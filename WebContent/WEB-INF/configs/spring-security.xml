@@ -1,0 +1,50 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<http pattern="/login*" security="none" />
+	<http pattern="/admin*/" security="none" />
+	<http pattern="/**" auto-config="true">
+<!-- 		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" /> -->
+		<intercept-url pattern="/user" access="ROLE_USER" />
+		<intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN" />
+		<access-denied-handler error-page="/user/403.jsp" />
+		
+		<form-login login-page="/login" default-target-url="/userAccess"
+			authentication-failure-url="/login?error" username-parameter="username"
+			password-parameter="password" />
+		<logout logout-success-url="/login?logout" />
+	</http>
+	
+	<http   >
+<!-- 		<intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN" /> -->
+		<access-denied-handler error-page="/user/403.jsp" />
+		<form-login login-page="/adminLogin" default-target-url="/adminAccess"
+			authentication-failure-url="/adminLogin?error" username-parameter="username"
+			password-parameter="password" />
+		<logout logout-success-url="/adminLogin?logout" />
+		<http-basic />
+	</http>
+
+	<beans:bean id="daoAuthenticationProvider"
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<beans:property name="userDetailsService" ref="userDetailsService" />
+	</beans:bean>
+
+	<beans:bean id="authenticationManager"
+		class="org.springframework.security.authentication.ProviderManager">
+		<beans:property name="providers">
+			<beans:list>
+				<beans:ref local="daoAuthenticationProvider" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<authentication-manager erase-credentials="false">
+		<authentication-provider user-service-ref="userDetailsService">
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>

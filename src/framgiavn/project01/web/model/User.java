@@ -16,6 +16,7 @@ public class User implements Serializable {
 	private String email;
 	private String avatar;
 	private boolean isAdmin;
+	private String role;
 
 	List<Activity> activityList;
 	List<User> followingList;
@@ -91,6 +92,14 @@ public class User implements Serializable {
 
 	public void setWordLearnedList(List<Word> wordLearnedList) {
 		this.wordLearnedList = wordLearnedList;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

@@ -15,14 +15,14 @@ import framgiavn.project01.web.ulti.Logit2;
 public class LessonCategoryBusinessImpl implements LessonCategoryBusiness {
 
 	private LessonCategoryDAO lessonCategoryDAO;
-	private static final Logit2 log = Logit2.getInstance(WordCategoryBusinessImpl.class);
+//	private static final Logit2 log = Logit2.getInstance(WordCategoryBusinessImpl.class);
 
 	@Override
 	public int getLearnedNumberUser(int userId, String category, String learnedStatus) {
 		try {
 			return getLessonCategoryDAO().getLearnedNumberUser(userId, category, learnedStatus);
 		} catch (Exception e) {
-			log.error("get failed ",e);
+//			log.error("get failed ",e);
 			return 0;
 		}
 	}
@@ -32,7 +32,7 @@ public class LessonCategoryBusinessImpl implements LessonCategoryBusiness {
 		try {
 			return getLessonCategoryDAO().getListCategory();
 		} catch (Exception e) {
-			log.error("get failed ",e);
+//			log.error("get failed ",e);
 			return null;
 		}
 	}
@@ -42,7 +42,7 @@ public class LessonCategoryBusinessImpl implements LessonCategoryBusiness {
 		try {
 			return getLessonCategoryDAO().getContentCategory(userId, category);
 		} catch (Exception e) {
-			log.error("get failed ",e);
+//			log.error("get failed ",e);
 			return null;
 		}
 	}

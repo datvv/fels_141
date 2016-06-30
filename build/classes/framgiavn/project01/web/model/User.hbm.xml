@@ -30,6 +30,10 @@
 		<property name="isAdmin" type="java.lang.Boolean">
 			<column name="is_admin" not-null="true" />
 		</property>
+		
+		<property name="role" type="java.lang.String">
+			<column name="role" length="30" />
+		</property>
 	</class>
 	<query name="User.SelectUserByUserId">
 		select user

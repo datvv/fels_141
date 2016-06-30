@@ -8,7 +8,7 @@
 *.ear
 *.classpath
 *.project
-*build/*
+*build
 
 
 .settings/

@@ -1,8 +1,8 @@
 package framgiavn.project01.web.dao.impl;
 
-import java.util.ArrayList;import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -274,5 +274,17 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 			re.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public User findUserByUserName(String userName) throws Exception {
+		try {
+			String hql = "Select user From User user where user.username = :userName";
+			Query query = getSession().createQuery(hql).setParameter("userName", userName);
+			return (User) query.uniqueResult();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+
 	}
 }

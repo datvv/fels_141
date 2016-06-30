@@ -61,5 +61,7 @@ public interface UserBusiness {
 	public Category findCategoryByName(String categoryName) throws Exception;
 
 	public Word findWordInCategory(String wordContent, String categoryName) throws Exception;
+	
+	public User findUserByUserName(String userName);
 
 }

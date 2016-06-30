@@ -18,7 +18,8 @@ import framgiavn.project01.web.model.WordAnswer;
 public class UserBusinessImpl implements UserBusiness {
 
 	private UserDAO userDAO;
-	private static final Logit2 log = Logit2.getInstance(UserBusinessImpl.class);
+	// private static final Logit2 log =
+	// Logit2.getInstance(UserBusinessImpl.class);
 
 	public UserDAO getUserDAO() {
 		return userDAO;
@@ -53,7 +54,7 @@ public class UserBusinessImpl implements UserBusiness {
 		try {
 			return getUserDAO().checkExistUser(user);
 		} catch (Exception e) {
-			log.error("get failed ", e);
+			// log.error("get failed ", e);
 			e.printStackTrace();
 		}
 		return null;
@@ -235,7 +236,7 @@ public class UserBusinessImpl implements UserBusiness {
 		try {
 			this.getUserDAO().saveOrUpdateUser(user);
 		} catch (Exception e) {
-			log.error("get failed :", e);
+			// log.error("get failed :", e);
 		}
 	}
 
@@ -244,7 +245,7 @@ public class UserBusinessImpl implements UserBusiness {
 		try {
 			this.getUserDAO().deleteUser(user);
 		} catch (Exception e) {
-			log.error("get failed :", e);
+			// log.error("get failed :", e);
 		}
 	}
 
@@ -284,6 +285,16 @@ public class UserBusinessImpl implements UserBusiness {
 	public Word findWordInCategory(String wordContent, String categoryName) throws Exception {
 		try {
 			return getUserDAO().findWordInCategory(wordContent, categoryName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public User findUserByUserName(String userName) {
+		try {
+			return getUserDAO().findUserByUserName(userName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

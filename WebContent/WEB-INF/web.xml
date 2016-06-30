@@ -5,11 +5,19 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>test</display-name>
 
+
+	 <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy
+        </filter-class>
+    </filter>
+    
 	<!-- Define filter for Struts 2 -->
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
 	</filter>
+	
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -22,10 +30,16 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
+	
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/* </url-pattern>
 	</filter-mapping>
+	<filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+	
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
@@ -33,7 +47,11 @@
 	<!-- Define Spring configuration files -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>WEB-INF/configs/spring-*-config.xml</param-value>
+		<param-value>
+			WEB-INF/configs/spring-*-config.xml
+			/WEB-INF/configs/spring-security.xml,
+			/WEB-INF/configs/spring-database.xml
+		</param-value>
 	</context-param>
 	<context-param>
 		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
@@ -50,22 +68,23 @@
 	<!-- Define Tiles 2 Listener -->
 	<!-- Define Listener for Spring -->
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<listener>
 		<listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
 	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
 	<!-- Define Spring Security Listener -->
 	<listener>
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
 	</listener>
-	<listener>
-		<listener-class>framgiavn.project01.web.listener.InitUserApplicationContext</listener-class>
-	</listener>
+<!-- 	<listener> -->
+<!-- 		<listener-class>framgiavn.project01.web.listener.InitUserApplicationContext</listener-class> -->
+<!-- 	</listener> -->
 	<!-- Define Welcome File List -->
 	<welcome-file-list>
 		<!-- <welcome-file>index.jsp</welcome-file> -->
-		<welcome-file></welcome-file>
+		<welcome-file>/user/redirect.jsp</welcome-file>
 	</welcome-file-list>
 
 	<session-config>
