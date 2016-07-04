@@ -16,14 +16,14 @@ import framgiavn.project01.web.ulti.Logit2;
 public class WordCategoryBusinessImpl implements WordCategoryBusiness {
 
 	private WordCategoryDAO wordCategoryDAO = null;
-	private static final Logit2 log = Logit2.getInstance(WordCategoryBusinessImpl.class);
+//	private static final Logit2 log = Logit2.getInstance(WordCategoryBusinessImpl.class);
 
 	@Override
 	public List<WordCategory> getListWordCategory() {
 		try {
 			return getWordCategoryDAO().getListWordCategory();
 		} catch (Exception e) {
-			log.error("get failed ", e);
+//			log.error("get failed ", e);
 			return null;
 		}
 	}

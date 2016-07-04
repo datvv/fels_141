@@ -25,8 +25,11 @@
 				exception="java.lang.RuntimeException" />
 		</global-exception-mappings>
 
-		<action name="" class="springAdminControlAction" method="importCSV">
-			<result>ImportCSV</result>
+		<!-- <action name="" class="springAdminControlAction" method="importCSV"> -->
+		<!-- <result>ImportCSV</result> -->
+		<!-- </action> -->
+		<action name="" class="springUserAction" method="homePage">
+			<result>USER_LOGIN_SPRING_SECURITY</result>
 		</action>
 
 	</package>
@@ -50,7 +53,7 @@
 		</global-exception-mappings>
 
 		<action name="" class="springManageUserAction" method="adminPage">
-			<result>ADMIN_PAGE</result>
+			<result>ADMIN_LOGIN_SPRING_SECURITY</result>
 		</action>
 
 	</package>

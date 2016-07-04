@@ -13,7 +13,7 @@ import framgiavn.project01.web.model.WordAnswer;
 import framgiavn.project01.web.ulti.Logit2;
 
 public class LessonWordDAOImpl extends HibernateDaoSupport implements LessonWordDAO {
-	private static final Logit2 log = Logit2.getInstance(UserDAOImpl.class);
+//	private static final Logit2 log = Logit2.getInstance(UserDAOImpl.class);
 	protected void initDAO() {
 
 	}

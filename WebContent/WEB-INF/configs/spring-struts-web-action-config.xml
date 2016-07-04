@@ -39,4 +39,7 @@
 	<bean id="springAdminControlAction" class="framgiavn.project01.web.action.AdminControlAction">
 		<property name="userBusiness" ref="UserBusiness" />
 	</bean>
+	
+	<bean id="springAdminAction" class="framgiavn.project01.web.action.AdminAction">
+	</bean>
 </beans>

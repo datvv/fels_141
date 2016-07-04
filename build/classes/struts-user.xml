@@ -93,6 +93,15 @@
 			method="importCSV">
 			<result name="success"></result>
 		</action>
+		
+		<action name="login">  
+            <result>USER_LOGIN_SPRING_SECURITY</result>  
+        </action> 
+        
+        <action name="userAccess" class="springAdminAction" method="execute">
+            <result name="success">USER_SPRING_SECURITY</result>
+        </action>
+       
 	</package>
 	<package name="json" namespace="/" extends="json-default">
 		<action name="filterAction" class="springWordListFilterAction"
@@ -147,5 +156,14 @@
 			method="updateAndSaveUser">
 			<result name="success" type="redirectAction">showListUser</result>
 		</action>
+		
+		<action name="adminAccess" class="springAdminAction" method="execute">
+            <result name="success">ADMIN_SPRING_SECURITY</result>
+        </action>
+		
+		<action name="adminLogin">
+            <result>ADMIN_LOGIN_SPRING_SECURITY</result>  
+        </action>
+        
 	</package>
 </struts>
